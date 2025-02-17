@@ -35,7 +35,7 @@ import {
   FiChevronDown,
 } from "react-icons/fi";
 import { IconType } from "react-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SI from '../assets/images/support.png'
 import { IoChatbubbleOutline } from "react-icons/io5";
 import { MdOutlineLogin } from "react-icons/md";
@@ -83,6 +83,13 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       const savedPage = localStorage.getItem("activePage");
       return savedPage || "/dashboard";
     });
+
+    useEffect(() => {
+      if (!localStorage.getItem("activePage")) {
+        localStorage.setItem("activePage", "/dashboard");
+        setActivePage("/dashboard");
+      }
+    }, []);
 
    const handleSetActivePage: React.Dispatch<React.SetStateAction<string>> = (
      page
@@ -387,17 +394,7 @@ const MobileNav = ({ onOpen, activePage, ...rest }: MobileProps) => {
     </Flex>
   );
 };
-<Flex>
-    <Text
-        display={{ base: "flex", md: "none" }}
-        fontSize="2xl"
-        fontFamily="monospace"
-        fontWeight="bold"
-      >
-        Log
-      </Text>
 
-</Flex>
 const Sidebar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [activePage, setActivePage] = useState<string>(() => {
