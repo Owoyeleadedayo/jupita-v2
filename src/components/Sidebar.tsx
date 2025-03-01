@@ -115,9 +115,14 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       }}
       {...rest}
     >
-      <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Logo
+      <Flex h="20" alignItems="center" mx="4" justifyContent="space-between">
+        <Text
+          fontFamily={"Nunito Sans"}
+          fontWeight={700}
+          fontSize={"16px"}
+          color={"#000000"}
+        >
+          PLUTO MICROFINANCE BANK - 345678
         </Text>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
@@ -304,7 +309,7 @@ const MobileNav = ({ onOpen, activePage, ...rest }: MobileProps) => {
         fontFamily={"Nunito Sans"}
         color={"#1F5AA3"}
       >
-        {activePage}
+        {activePage === "/dashboard" ? "Dashboard" : activePage}
       </Text>
 
       <HStack spacing={{ base: "0", md: "16px" }}>
@@ -363,7 +368,6 @@ const MobileNav = ({ onOpen, activePage, ...rest }: MobileProps) => {
 
               <MenuDivider />
 
-              {/* Role Selection */}
               <MenuItem onClick={() => handleRoleChange("Admin")}>
                 Switch to Admin
               </MenuItem>

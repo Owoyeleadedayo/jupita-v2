@@ -1,9 +1,16 @@
-import { Box, Button, Checkbox, Flex, Heading, Image, Input, Text } from "@chakra-ui/react"
+import { Box, Button, Checkbox, Flex, FormControl, FormLabel, Heading, Image, Input, InputGroup, InputRightElement, Text } from "@chakra-ui/react"
 import Logo from '../../assets/images/white.png'
 import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { LuEye, LuEyeClosed } from "react-icons/lu";
 
 const SignIn = () => {
+  const [show, setShow] = useState(true);
+
+  const handleClick = () => {
+    setShow(!show);
+  };
   const navigate = useNavigate()
   return (
     <>
@@ -88,22 +95,35 @@ const SignIn = () => {
                   />
                 </Flex>
                 <Flex flexDirection={"column"} gap={2}>
-                  <Text
-                    fontFamily={"Nunito Sans"}
-                    fontWeight={600}
-                    fontSize={"16px"}
-                    color={"#7D8592"}
-                  >
-                    Password
-                  </Text>
-                  <Input
-                    name="password"
-                    type="password"
-                    required
-                    placeholder="••••••••"
-                    fontFamily="Nunito Sans"
-                    fontSize="16px"
-                  />
+                  <FormControl>
+                    <FormLabel
+                      fontFamily={"Nunito Sans"}
+                      fontWeight={600}
+                      fontSize={"16px"}
+                      color={"#7D8592"}
+                    >
+                      Password
+                    </FormLabel>
+                    <InputGroup>
+                      <Input
+                        type={show ? "password" : "text"}
+                        placeholder="••••••••"
+                        name="password"
+                        fontFamily="Nunito Sans"
+                        fontSize="16px"
+                        color={"#7D8592"}
+                      />
+                      <InputRightElement width="3rem">
+                        <Button variant={"none"} onClick={handleClick}>
+                          {show ? (
+                            <LuEyeClosed fontSize={"20px"} />
+                          ) : (
+                            <LuEye fontSize={"20px"} />
+                          )}
+                        </Button>
+                      </InputRightElement>
+                    </InputGroup>
+                  </FormControl>
                 </Flex>
               </Flex>
 
@@ -153,6 +173,7 @@ const SignIn = () => {
                   fontWeight={700}
                   variant={"none"}
                   boxShadow={"lg"}
+                  borderRadius={'12px'}
                   onClick={() => navigate("/sign-up")}
                 >
                   Sign In{" "}
