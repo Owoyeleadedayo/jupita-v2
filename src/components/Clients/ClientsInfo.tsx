@@ -32,7 +32,13 @@ const ClientsInfo = () => {
               variant="soft-rounded"
               colorScheme="blue"
             >
-              <TabList bg={"#e6edf5"} p={"2px"} borderRadius={"18px"}>
+              <TabList
+                maxWidth={"335px"}
+                bg={"#e6edf5"}
+                p={"3px"}
+                borderRadius={"18px"}
+                gap={"8px"}
+              >
                 <Tab
                   bg={tabIndex === 0 ? "#1F5AA3" : "transparent"}
                   color={tabIndex === 0 ? "white" : "black"}
@@ -72,7 +78,7 @@ const ClientsInfo = () => {
               </TabList>
               <TabPanels>
                 <TabPanel p={0}>
-                    <UserDetails />
+                  <UserDetails />
                 </TabPanel>
                 <TabPanel p={0}>
                   <Documents />
@@ -82,7 +88,7 @@ const ClientsInfo = () => {
                 </TabPanel>
               </TabPanels>
             </Tabs>
-            <Flex position={"absolute"} right={0} gap={'5px'}>
+            <Flex position={"absolute"} right={0} gap={"5px"}>
               <Button
                 width={"100%"}
                 height={{ md: "40px", base: "30px" }}
@@ -102,7 +108,7 @@ const ClientsInfo = () => {
                 send SMS
               </Button>
               <Button p={0}>
-                <RiMore2Line fontSize={'20px'} />
+                <RiMore2Line fontSize={"20px"} />
               </Button>
             </Flex>
           </Flex>

@@ -17,6 +17,7 @@ import CreditSearchPage from './Pages/CreditSearch/CreditSearchPage';
 import LogsPage from './Pages/Log/LogsPage';
 import SettingsPage from './Pages/Settings/SettingsPage';
 import AnalyzePage from './Pages/Analyze/AnalyzePage';
+import AnalyzeDetailsPage from "./Pages/Analyze/AnalyzeDetailsPage";
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
             <Route path="/clients/:userId" element={<InfoPage />} />
             <Route path="/credit-search" element={<CreditSearchPage />} />
             <Route path="/analyze" element={<AnalyzePage />} />
+            <Route path="/analyze/:fileType" element={<AnalyzeDetailsPage />} />
             <Route path="/logs" element={<LogsPage />} />
             <Route path="/settings" element={<SettingsPage />} />
           </Route>
@@ -67,6 +69,7 @@ function LayoutWithSidebar() {
           <Route path="/clients/:userId" element={<InfoPage />} />
           <Route path="/credit-search" element={<CreditSearchPage />} />
           <Route path="/analyze" element={<AnalyzePage />} />
+          <Route path="/analyze/:fileType" element={<AnalyzeDetailsPage />} />
           <Route path="/logs" element={<LogsPage />} />
           <Route path="/settings" element={<SettingsPage />} />
         </Routes>

@@ -8,15 +8,15 @@ import {
   Tabs,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import LoanDetails from "./LoanDetails";
-import CreditSearch from "./CreditSearch/CreditSearch";
+import { CiExport } from "react-icons/ci";
+import Summary from "./Summary/Summary";
 
-const Details = () => {
+const AnalyzeDetails = () => {
   const [tabIndex, setTabIndex] = useState(0);
 
   const handleTabChange = (index: number) => {
     if (index !== 0) {
-      setTabIndex(index); 
+      setTabIndex(index);
     }
   };
   return (
@@ -31,11 +31,11 @@ const Details = () => {
               colorScheme="blue"
             >
               <TabList
-                maxWidth={"360px"}
+                maxWidth={"340px"}
                 bg={"#e6edf5"}
                 p={"3px"}
                 borderRadius={"18px"}
-                gap={"9px"}
+                gap={'7px'}
               >
                 <Tab
                   bg={tabIndex === 0 ? "#1F5AA3" : "transparent"}
@@ -47,7 +47,7 @@ const Details = () => {
                   fontWeight={tabIndex === 0 ? 700 : 400}
                   fontSize={"16px"}
                 >
-                  Loan Details
+                  Summary
                 </Tab>
                 <Tab
                   bg={tabIndex === 1 ? "#1F5AA3" : "transparent"}
@@ -59,7 +59,7 @@ const Details = () => {
                   fontWeight={tabIndex === 1 ? 700 : 400}
                   fontSize={"16px"}
                 >
-                  Credit Search
+                  Cash Flow
                 </Tab>
                 <Tab
                   bg={tabIndex === 2 ? "#1F5AA3" : "transparent"}
@@ -71,40 +71,38 @@ const Details = () => {
                   fontWeight={tabIndex === 2 ? 700 : 400}
                   fontSize={"16px"}
                 >
-                  Decide
+                  Behavioral
                 </Tab>
               </TabList>
               <TabPanels>
                 <TabPanel p={0}>
-                  <LoanDetails />
+                  <Summary />
                 </TabPanel>
-                <TabPanel p={0}>
-                  <CreditSearch />
-                </TabPanel>
-                <TabPanel>
-                  <p>three!</p>
-                </TabPanel>
+                <TabPanel p={0}>two</TabPanel>
+                <TabPanel p={0}>three</TabPanel>
               </TabPanels>
             </Tabs>
-            <Flex position={"absolute"} right={0}>
-              <Button
-                width={"100%"}
-                height={{ md: "40px", base: "30px" }}
-                bgColor={"#1F5AA3"}
-                fontSize={{ md: "14px", xl: "14px" }}
-                lineHeight={"20px"}
-                fontFamily={"Nunito Sans"}
-                fontWeight={700}
-                color={"white"}
-                textTransform={"capitalize"}
-                _hover={{
-                  bg: "white",
-                  border: "1px solid #2261B0",
-                  color: "#2261B0",
-                }}
+            <Flex position={"absolute"} right={0} gap={"5px"}>
+              <Flex
+                justifyContent={"center"}
+                alignItems={"center"}
+                gap={"10px"}
               >
-                Change status
-              </Button>
+                <Button
+                  px={{ md: "12px", base: "3px" }}
+                  py={{ md: "5px", base: "1px" }}
+                  variant={"none"}
+                  bgColor={"#1F5AA3"}
+                  color={"white"}
+                  fontFamily={"Nunito Sans"}
+                  fontSize={{ md: "16px", base: "14px" }}
+                >
+                  <Flex pr={"5px"}>
+                    <CiExport color="#FFFFFF" fontSize={"20px"} />
+                  </Flex>
+                  Export
+                </Button>
+              </Flex>
             </Flex>
           </Flex>
         </Flex>
@@ -113,4 +111,4 @@ const Details = () => {
   );
 };
 
-export default Details;
+export default AnalyzeDetails;

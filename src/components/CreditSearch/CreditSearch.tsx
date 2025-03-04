@@ -29,7 +29,13 @@ const CreditSearch = () => {
               variant="soft-rounded"
               colorScheme="blue"
             >
-              <TabList bg={"#e6edf5"} p={"2px"} borderRadius={"18px"}>
+              <TabList
+                maxWidth={"215px"}
+                bg={"#e6edf5"}
+                p={"3px"}
+                borderRadius={"18px"}
+                gap={"8px"}
+              >
                 <Tab
                   bg={tabIndex === 0 ? "#1F5AA3" : "transparent"}
                   color={tabIndex === 0 ? "white" : "black"}
