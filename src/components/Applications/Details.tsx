@@ -10,6 +10,7 @@ import {
 import { useState } from "react";
 import LoanDetails from "./LoanDetails";
 import CreditSearch from "./CreditSearch/CreditSearch";
+import Decide from "./Decide";
 
 const Details = () => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -81,8 +82,8 @@ const Details = () => {
                 <TabPanel p={0}>
                   <CreditSearch />
                 </TabPanel>
-                <TabPanel>
-                  <p>three!</p>
+                <TabPanel p={0}>
+                  <Decide />
                 </TabPanel>
               </TabPanels>
             </Tabs>

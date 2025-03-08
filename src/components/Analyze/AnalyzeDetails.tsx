@@ -10,6 +10,8 @@ import {
 import { useState } from "react";
 import { CiExport } from "react-icons/ci";
 import Summary from "./Summary/Summary";
+import CashFlow from "./CashFlow";
+import Behavioral from "./Behavioral";
 
 const AnalyzeDetails = () => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -35,7 +37,7 @@ const AnalyzeDetails = () => {
                 bg={"#e6edf5"}
                 p={"3px"}
                 borderRadius={"18px"}
-                gap={'7px'}
+                gap={'5px'}
               >
                 <Tab
                   bg={tabIndex === 0 ? "#1F5AA3" : "transparent"}
@@ -78,8 +80,12 @@ const AnalyzeDetails = () => {
                 <TabPanel p={0}>
                   <Summary />
                 </TabPanel>
-                <TabPanel p={0}>two</TabPanel>
-                <TabPanel p={0}>three</TabPanel>
+                <TabPanel p={0}>
+                  <CashFlow />
+                </TabPanel>
+                <TabPanel p={0}>
+                  <Behavioral />
+                </TabPanel>
               </TabPanels>
             </Tabs>
             <Flex position={"absolute"} right={0} gap={"5px"}>

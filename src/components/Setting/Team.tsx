@@ -1,6 +1,7 @@
 import { Button, Flex, Table, Tbody, Td, Text, Th, Thead, Tr, useDisclosure } from "@chakra-ui/react";
 import { MdOutlineSettings } from "react-icons/md";
 import NewUserModal from "./NewUserModal";
+import ManageRoleModal from "./ManageRoleModal";
 
 const Team = () => {
     const teamTable = [
@@ -30,7 +31,12 @@ const Team = () => {
       },
     ];
 
-    const { isOpen: openNewUser, onClose: closeNewUser, onOpen: onOpenNewUser } = useDisclosure()
+    const { isOpen: openNewUser, onClose: closeNewUser, onOpen: onOpenNewUser } = useDisclosure();
+    const {
+      isOpen: isOpenRoles,
+      onClose: onCloseRoles,
+      onOpen: onOpenRole,
+    } = useDisclosure();
   return (
     <>
       <Flex
@@ -64,14 +70,19 @@ const Team = () => {
                 fontSize={"14px"}
                 fontWeight={700}
                 color={"#7D8592"}
-                display={'flex'}
+                display={"flex"}
                 justifyContent={"center"}
                 alignItems="center"
                 gap={"3px"}
+                onClick={onOpenRole}
               >
                 <MdOutlineSettings fontSize={"17px"} />
                 Manage Roles
               </Button>
+              <ManageRoleModal
+                isOpenRoles={isOpenRoles}
+                onCloseRoles={onCloseRoles}
+              />
             </Flex>
             <Flex onClick={onOpenNewUser}>
               <Button

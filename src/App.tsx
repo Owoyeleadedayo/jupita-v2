@@ -18,6 +18,8 @@ import LogsPage from './Pages/Log/LogsPage';
 import SettingsPage from './Pages/Settings/SettingsPage';
 import AnalyzePage from './Pages/Analyze/AnalyzePage';
 import AnalyzeDetailsPage from "./Pages/Analyze/AnalyzeDetailsPage";
+import PersonalInformation from './components/IndividualLoanFlow/PersonalInformation';
+import DecidePage from './Pages/Decide/DecidePage';
 
 function App() {
 
@@ -30,6 +32,7 @@ function App() {
           <Route path="/verify" element={<VerifyEmail />} />
           <Route path="/success" element={<SuccessPage />} />
           <Route path="/loan-info" element={<LoanInformation />} />
+          <Route path="/personal-info" element={<PersonalInformation />} />
           <Route element={<LayoutWithSidebar />}>
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/api-status" element={<ApiStatusPage />} />
@@ -43,6 +46,7 @@ function App() {
             <Route path="/credit-search" element={<CreditSearchPage />} />
             <Route path="/analyze" element={<AnalyzePage />} />
             <Route path="/analyze/:fileType" element={<AnalyzeDetailsPage />} />
+            <Route path="/decide" element={<DecidePage />} />
             <Route path="/logs" element={<LogsPage />} />
             <Route path="/settings" element={<SettingsPage />} />
           </Route>
@@ -70,6 +74,7 @@ function LayoutWithSidebar() {
           <Route path="/credit-search" element={<CreditSearchPage />} />
           <Route path="/analyze" element={<AnalyzePage />} />
           <Route path="/analyze/:fileType" element={<AnalyzeDetailsPage />} />
+          <Route path="/decide" element={<DecidePage />} />
           <Route path="/logs" element={<LogsPage />} />
           <Route path="/settings" element={<SettingsPage />} />
         </Routes>

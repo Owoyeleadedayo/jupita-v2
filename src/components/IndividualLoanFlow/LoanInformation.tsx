@@ -61,7 +61,7 @@ const LoanInformation = () => {
               <Stepper
                 index={activeStep}
                 orientation="vertical"
-                height="300px"
+                height="350px"
                 gap="0"
               >
                 {steps.map((step, index) => (
@@ -84,8 +84,11 @@ const LoanInformation = () => {
                       </StepTitle>
                     </Box>
 
-                    {index < steps.length - 0 && (
-                      <StepSeparator border="1px solid white" />
+                    {index < steps.length - 1 && (
+                      <StepSeparator
+                        borderColor={index === 0 ? "#FFFFFF" : "#FFFFFF4D"}
+                        borderWidth="1px"
+                      />
                     )}
                   </Step>
                 ))}
@@ -110,7 +113,7 @@ const LoanInformation = () => {
                   fontSize={"14px"}
                   color={"#1F5AA3"}
                 >
-                  Step 1/2
+                  Step 1/6
                 </Text>
               </Flex>
               <Flex>
@@ -186,7 +189,7 @@ const LoanInformation = () => {
                 </Flex>
               </Flex>
             </Flex>
-            <Divider mt={'90px'} />
+            <Divider mt={"90px"} />
             <Flex position={"absolute"} right={0} bottom={"1px"} px={"20px"}>
               <Button
                 width={"145px"}
