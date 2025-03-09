@@ -11,13 +11,13 @@ import Scorecard from "./Scorecard";
 import LoanProduct from "./LoanProduct";
 
 const Decide = () => {
-    const [tabIndex, setTabIndex] = useState(0);
+  const [tabIndex, setTabIndex] = useState(0);
 
-    const handleTabChange = (index: number) => {
-      if (index !== 0) {
-        setTabIndex(index);
-      }
-    };
+  const handleTabChange = (index: number) => {
+    if (index !== 0) {
+      setTabIndex(index);
+    }
+  };
   return (
     <>
       <Flex width={"100%"} mx={"10px"}>
@@ -64,7 +64,9 @@ const Decide = () => {
             <TabPanel p={0}>
               <Scorecard />
             </TabPanel>
-            <TabPanel p={0}><LoanProduct /></TabPanel>
+            <TabPanel p={0}>
+              <LoanProduct />
+            </TabPanel>
           </TabPanels>
         </Tabs>
       </Flex>

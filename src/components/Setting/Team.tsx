@@ -76,7 +76,9 @@ const Team = () => {
                 gap={"3px"}
                 onClick={onOpenRole}
               >
-                <MdOutlineSettings fontSize={"17px"} />
+                <Flex fontSize={"22px"} pr={"5px"} color={"#000000"}>
+                  <MdOutlineSettings fontSize={"17px"} />
+                </Flex>
                 Manage Roles
               </Button>
               <ManageRoleModal

@@ -30,6 +30,7 @@ const Details = () => {
               onChange={handleTabChange}
               variant="soft-rounded"
               colorScheme="blue"
+              width={"100%"}
             >
               <TabList
                 maxWidth={"360px"}
@@ -87,7 +88,7 @@ const Details = () => {
                 </TabPanel>
               </TabPanels>
             </Tabs>
-            <Flex position={"absolute"} right={0}>
+            <Flex position={"absolute"} right={0} mr={"10px"}>
               <Button
                 width={"100%"}
                 height={{ md: "40px", base: "30px" }}

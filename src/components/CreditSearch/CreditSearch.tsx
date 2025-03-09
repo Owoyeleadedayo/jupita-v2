@@ -28,6 +28,7 @@ const CreditSearch = () => {
               onChange={handleTabChange}
               variant="soft-rounded"
               colorScheme="blue"
+              width={'100%'}
             >
               <TabList
                 maxWidth={"215px"}

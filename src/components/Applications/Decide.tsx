@@ -4,6 +4,10 @@ import {
   Flex,
   Image,
   Input,
+  Radio,
+  RadioGroup,
+  Select,
+  Stack,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -12,8 +16,25 @@ import { FiEdit } from "react-icons/fi";
 import { FaCircleCheck } from "react-icons/fa6";
 import DataModal from "./DataModal";
 import ProfileModal from "./ProfileModal";
+import { SetStateAction, useState } from "react";
 
 const Decide = () => {
+  const [showLoanDecision, setShowLoanDecision] = useState(false);
+
+   const handleSubmit = () => {
+     setShowLoanDecision(true);
+   };
+
+   const [radioValue, setRadioValue] = useState("1");
+   const [radioValue2, setRadioValue2] = useState("1");
+
+   const handleRadioChange = (value: SetStateAction<string>) => {
+     setRadioValue(value);
+   };
+   const handleRadioChange2 = (value: SetStateAction<string>) => {
+    setRadioValue2(value);
+   }
+
     const {isOpen:openData, onClose:closeData, onOpen:onOpenData} = useDisclosure()
       const {
         isOpen: isOpenProfile,
@@ -226,74 +247,439 @@ const Decide = () => {
             <DataModal openData={openData} closeData={closeData} />
           </Flex>
         </Flex>
-        <Flex
-          width={"800px"}
-          height={"917px"}
-          bgColor={"#FFFFFF"}
-          p={"20px"}
-          borderRadius={"12px"}
-          direction={"column"}
-          gap={"20px"}
-        >
-          <Flex direction={"column"} gap={"20px"}>
-            <Flex direction={"column"} gap={"3px"}>
-              <Text
-                fontFamily={"Nunito Sans"}
-                fontWeight={700}
-                fontSize={"14px"}
-                color={"#7D8592"}
-                textTransform={"capitalize"}
-              >
-                Verified net income
-              </Text>
-              <Input
-                type="text"
-                placeholder="Enter net income"
-                width={"350px"}
-                fontFamily={"Nunito Sans"}
-                fontWeight={400}
-                fontSize={"14px"}
-                color={"#7D8592"}
-                textTransform={"capitalize"}
-              />
+        {!showLoanDecision && (
+          <Flex
+            width={"800px"}
+            height={"917px"}
+            bgColor={"#FFFFFF"}
+            p={"20px"}
+            borderRadius={"12px"}
+            direction={"column"}
+            gap={"20px"}
+          >
+            <Flex direction={"column"} gap={"20px"}>
+              <Flex direction={"column"} gap={"3px"}>
+                <Text
+                  fontFamily={"Nunito Sans"}
+                  fontWeight={700}
+                  fontSize={"14px"}
+                  color={"#7D8592"}
+                  textTransform={"capitalize"}
+                >
+                  Verified net income
+                </Text>
+                <Input
+                  type="text"
+                  placeholder="Enter net income"
+                  width={"350px"}
+                  fontFamily={"Nunito Sans"}
+                  fontWeight={400}
+                  fontSize={"14px"}
+                  color={"#7D8592"}
+                  textTransform={"capitalize"}
+                />
+              </Flex>
+              <Flex direction={"column"} gap={"3px"}>
+                <Text
+                  fontFamily={"Nunito Sans"}
+                  fontWeight={700}
+                  fontSize={"14px"}
+                  color={"#7D8592"}
+                  textTransform={"capitalize"}
+                >
+                  Monthly loan repayment
+                </Text>
+                <Input
+                  type="text"
+                  placeholder="Enter monthly loan repayment"
+                  width={"350px"}
+                  fontFamily={"Nunito Sans"}
+                  fontWeight={400}
+                  fontSize={"14px"}
+                  color={"#7D8592"}
+                  textTransform={"capitalize"}
+                />
+              </Flex>
             </Flex>
-            <Flex direction={"column"} gap={"3px"}>
-              <Text
+            <Flex mt={"10px"}>
+              <Button
+                variant={"none"}
+                bgColor={"#1F5AA3"}
+                borderRadius={"12px"}
+                boxShadow={"lg"}
                 fontFamily={"Nunito Sans"}
+                fontSize={"16px"}
                 fontWeight={700}
-                fontSize={"14px"}
-                color={"#7D8592"}
-                textTransform={"capitalize"}
+                color={"#FFFFFF"}
+                onClick={handleSubmit}
               >
-                Monthly loan repayment
-              </Text>
-              <Input
-                type="text"
-                placeholder="Enter monthly loan repayment"
-                width={"350px"}
-                fontFamily={"Nunito Sans"}
-                fontWeight={400}
-                fontSize={"14px"}
-                color={"#7D8592"}
-                textTransform={"capitalize"}
-              />
+                Run decision
+              </Button>
             </Flex>
           </Flex>
-          <Flex mt={'10px'}>
-            <Button
-              variant={"none"}
-              bgColor={"#1F5AA3"}
-              borderRadius={"12px"}
-              boxShadow={"lg"}
-              fontFamily={"Nunito Sans"}
-              fontSize={"16px"}
-              fontWeight={700}
-              color={"#FFFFFF"}
+        )}
+        {showLoanDecision && (
+          <Flex
+            width={"100%"}
+            height={"100%"}
+            // direction={"column"}
+            gap={"20px"}
+          >
+            <Flex
+              width={"500px"}
+              height={"100%"}
+              bg={"#FFFFFF"}
+              p={"20px"}
+              direction={"column"}
+              gap={"20px"}
+              borderRadius={"10px"}
             >
-              Run decision
-            </Button>
+              <Text
+                fontFamily={"Nunito Sans"}
+                fontSize={"12px"}
+                fontWeight={600}
+                color={"#1F5AA3"}
+              >
+                Back
+              </Text>
+              <Flex direction={"column"} gap={"10px"}>
+                <Text
+                  fontFamily={"Nunito Sans"}
+                  fontSize={"14px"}
+                  fontWeight={700}
+                  color={"#0A1629"}
+                >
+                  Loan Summary
+                </Text>
+                <Flex direction={"column"} gap={"20px"}>
+                  <Flex justifyContent={"space-between"}>
+                    <Text
+                      fontFamily={"Nunito Sans"}
+                      fontSize={"14px"}
+                      fontWeight={400}
+                      color={"#0A1629"}
+                      textTransform={"capitalize"}
+                    >
+                      Verified net income
+                    </Text>
+                    <Text
+                      fontFamily={"Nunito Sans"}
+                      fontSize={"14px"}
+                      fontWeight={700}
+                      color={"#0A1629"}
+                    >
+                      894,000.00
+                    </Text>
+                  </Flex>
+                  <Flex justifyContent={"space-between"}>
+                    <Text
+                      fontFamily={"Nunito Sans"}
+                      fontSize={"14px"}
+                      fontWeight={400}
+                      color={"#0A1629"}
+                      textTransform={"capitalize"}
+                    >
+                      Monthly loan repayment
+                    </Text>
+                    <Text
+                      fontFamily={"Nunito Sans"}
+                      fontSize={"14px"}
+                      fontWeight={700}
+                      color={"#0A1629"}
+                    >
+                      89,400.00
+                    </Text>
+                  </Flex>
+                  <Flex justifyContent={"space-between"}>
+                    <Text
+                      fontFamily={"Nunito Sans"}
+                      fontSize={"14px"}
+                      fontWeight={400}
+                      color={"#0A1629"}
+                      textTransform={"capitalize"}
+                    >
+                      Debt to income ratio
+                    </Text>
+                    <Text
+                      fontFamily={"Nunito Sans"}
+                      fontSize={"14px"}
+                      fontWeight={700}
+                      color={"#0A1629"}
+                    >
+                      10%
+                    </Text>
+                  </Flex>
+                  <Flex justifyContent={"space-between"}>
+                    <Text
+                      fontFamily={"Nunito Sans"}
+                      fontSize={"14px"}
+                      fontWeight={400}
+                      color={"#0A1629"}
+                      textTransform={"capitalize"}
+                    >
+                      Credit score
+                    </Text>
+                    <Text
+                      fontFamily={"Nunito Sans"}
+                      fontSize={"14px"}
+                      fontWeight={700}
+                      color={"#0A1629"}
+                    >
+                      702
+                    </Text>
+                  </Flex>
+                  <Flex justifyContent={"space-between"}>
+                    <Text
+                      fontFamily={"Nunito Sans"}
+                      fontSize={"14px"}
+                      fontWeight={400}
+                      color={"#0A1629"}
+                      textTransform={"capitalize"}
+                    >
+                      Maximum eligible amount
+                    </Text>
+                    <Text
+                      fontFamily={"Nunito Sans"}
+                      fontSize={"14px"}
+                      fontWeight={700}
+                      color={"#0A1629"}
+                    >
+                      5,000,000.00
+                    </Text>
+                  </Flex>
+                  <Flex justifyContent={"space-between"}>
+                    <Text
+                      fontFamily={"Nunito Sans"}
+                      fontSize={"14px"}
+                      fontWeight={400}
+                      color={"#0A1629"}
+                      textTransform={"capitalize"}
+                    >
+                      Monthly repayment
+                    </Text>
+                    <Text
+                      fontFamily={"Nunito Sans"}
+                      fontSize={"14px"}
+                      fontWeight={700}
+                      color={"#0A1629"}
+                    >
+                      500,000.00
+                    </Text>
+                  </Flex>
+                  <Flex justifyContent={"space-between"}>
+                    <Text
+                      fontFamily={"Nunito Sans"}
+                      fontSize={"14px"}
+                      fontWeight={400}
+                      color={"#0A1629"}
+                      textTransform={"capitalize"}
+                    >
+                      Monthly repayment to income
+                    </Text>
+                    <Text
+                      fontFamily={"Nunito Sans"}
+                      fontSize={"14px"}
+                      fontWeight={700}
+                      color={"#0A1629"}
+                    >
+                      10%
+                    </Text>
+                  </Flex>
+                  <Flex justifyContent={"space-between"}>
+                    <Text
+                      fontFamily={"Nunito Sans"}
+                      fontSize={"14px"}
+                      fontWeight={400}
+                      color={"#0A1629"}
+                      textTransform={"capitalize"}
+                    >
+                      Risk level
+                    </Text>
+                    <Text
+                      fontFamily={"Nunito Sans"}
+                      fontSize={"14px"}
+                      fontWeight={700}
+                      color={"#0A1629"}
+                    >
+                      Medium
+                    </Text>
+                  </Flex>
+                  <Flex justifyContent={"space-between"}>
+                    <Text
+                      fontFamily={"Nunito Sans"}
+                      fontSize={"14px"}
+                      fontWeight={400}
+                      color={"#0A1629"}
+                      textTransform={"capitalize"}
+                    >
+                      Requested amount
+                    </Text>
+                    <Text
+                      fontFamily={"Nunito Sans"}
+                      fontSize={"14px"}
+                      fontWeight={700}
+                      color={"#0A1629"}
+                    >
+                      5,000,000.00
+                    </Text>
+                  </Flex>
+                </Flex>
+              </Flex>
+              <Flex direction={"column"} gap={"10px"}>
+                <Text
+                  fontFamily={"Nunito Sans"}
+                  fontSize={"14px"}
+                  fontWeight={700}
+                  color={"#0A1629"}
+                >
+                  Decision outcome
+                </Text>
+                <Flex direction={"column"} gap={"20px"}>
+                  <Flex direction={"column"} gap={"20px"}>
+                    <Flex justifyContent={"space-between"}>
+                      <Text
+                        fontFamily={"Nunito Sans"}
+                        fontSize={"14px"}
+                        fontWeight={400}
+                        color={"#0A1629"}
+                        textTransform={"capitalize"}
+                      >
+                        Approve requested amount
+                      </Text>
+                      <RadioGroup
+                        onChange={handleRadioChange2}
+                        value={radioValue2}
+                      >
+                        <Stack direction="row">
+                          <Radio value="1">Yes</Radio>
+                          <Radio value="2">No</Radio>
+                        </Stack>
+                      </RadioGroup>
+                    </Flex>
+
+                    {radioValue2 === "2" && (
+                      <Flex justifyContent={"space-between"}>
+                        <Text
+                          fontFamily={"Nunito Sans"}
+                          fontSize={"14px"}
+                          fontWeight={400}
+                          color={"#0A1629"}
+                          textTransform={"capitalize"}
+                        >
+                          Enter approved amount
+                        </Text>
+                        <Input width={"100px"} />
+                      </Flex>
+                    )}
+                  </Flex>
+                  <Flex direction={"column"} gap={"20px"}>
+                    <Flex justifyContent={"space-between"}>
+                      <Text
+                        fontFamily={"Nunito Sans"}
+                        fontSize={"14px"}
+                        fontWeight={400}
+                        color={"#0A1629"}
+                        textTransform={"capitalize"}
+                      >
+                        Use default interest rate (3.5%)
+                      </Text>
+                      <RadioGroup
+                        onChange={handleRadioChange}
+                        value={radioValue}
+                      >
+                        <Stack direction="row">
+                          <Radio value="1">Yes</Radio>
+                          <Radio value="2">No</Radio>
+                        </Stack>
+                      </RadioGroup>
+                    </Flex>
+
+                    {radioValue === "2" && (
+                      <Flex justifyContent={"space-between"}>
+                        <Text
+                          fontFamily={"Nunito Sans"}
+                          fontSize={"14px"}
+                          fontWeight={400}
+                          color={"#0A1629"}
+                          textTransform={"capitalize"}
+                        >
+                          Enter interest rate
+                        </Text>
+                        <Input width={"100px"} />
+                      </Flex>
+                    )}
+                  </Flex>
+                </Flex>
+              </Flex>
+              <Flex>
+                <Select
+                  width={"200px"}
+                  fontFamily={"Nunito Sans"}
+                  fontSize={"14px"}
+                  fontWeight={400}
+                  color={"#7D8592"}
+                >
+                  <option value="" disabled selected hidden>
+                    Select Loan Tenor
+                  </option>
+                  <option>3 months</option>
+                  <option>6 months</option>
+                  <option>12 months</option>
+                </Select>
+              </Flex>
+              <Flex mt={"20px"} gap={"20px"}>
+                <Button
+                  bg={"#067B58"}
+                  variant={"none"}
+                  fontFamily={"Nunito Sans"}
+                  fontSize={"16px"}
+                  fontWeight={700}
+                  color={"#FFFFFF"}
+                >
+                  Approve
+                </Button>
+                <Button
+                  bg={"#D60F0F"}
+                  variant={"none"}
+                  fontFamily={"Nunito Sans"}
+                  fontSize={"16px"}
+                  fontWeight={700}
+                  color={"#FFFFFF"}
+                >
+                  Decline
+                </Button>
+              </Flex>
+            </Flex>
+            <Flex
+              width={"300px"}
+              height={"100%"}
+              bg={"#FFFFFF"}
+              p={"20px"}
+              direction={"column"}
+              gap={"20px"}
+              borderRadius={"10px"}
+            >
+              <Flex justifyContent={"space-between"}>
+                <Text
+                  fontFamily={"Nunito Sans"}
+                  fontSize={"14px"}
+                  fontWeight={700}
+                  color={"#0A1629"}
+                >
+                  Comments
+                </Text>
+                <Text
+                  fontFamily={"Nunito Sans"}
+                  fontSize={"12px"}
+                  fontWeight={700}
+                  color={"#1F5AA3"}
+                >
+                  + Add New
+                </Text>
+              </Flex>
+            </Flex>
           </Flex>
-        </Flex>
+        )}
       </Flex>
     </>
   );
