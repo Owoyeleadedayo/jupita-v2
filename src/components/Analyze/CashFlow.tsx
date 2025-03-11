@@ -137,7 +137,7 @@ const CashFlow = () => {
           py={"10px"}
           borderRadius={"10px"}
           maxHeight="550px"
-          width={'1070px'}
+          width={'100%'}
           overflowY="auto"
         >
           <Table variant="simple">

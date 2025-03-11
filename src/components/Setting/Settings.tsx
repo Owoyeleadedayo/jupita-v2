@@ -26,6 +26,7 @@ const Settings = () => {
           <Flex width={"100%"} mx={"10px"}>
             <Tabs
               index={tabIndex}
+              width={"100%"}
               onChange={handleTabChange}
               variant="soft-rounded"
               colorScheme="blue"

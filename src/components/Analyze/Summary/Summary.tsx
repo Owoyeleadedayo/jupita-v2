@@ -43,7 +43,7 @@ const Summary = () => {
           {summaryCard.map((item, index) => (
             <Flex
               key={index}
-              width={"190px"}
+              width={"100%"}
               height={"100px"}
               bg={item.bgColor}
               justifyContent={"center"}

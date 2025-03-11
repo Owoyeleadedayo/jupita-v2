@@ -21,7 +21,7 @@ const Behavioral = () => {
   return (
     <>
       <Flex
-        width={"1070px"}
+        width={"100%"}
         height={"100vh"}
         bgColor={"#FFFFFF"}
         p={"20px"}
@@ -54,7 +54,7 @@ const Behavioral = () => {
             {behavioralCard.map((item, index) => (
               <Flex
                 key={index}
-                width={"160px"}
+                width={"100%"}
                 height={"100px"}
                 bg={item.bgColor}
                 justifyContent={"center"}

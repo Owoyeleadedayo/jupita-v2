@@ -16,7 +16,7 @@ const Individual = () => {
   return (
     <>
       <Flex
-        width={"1080px"}
+        width={"100%"}
         height={"420px"}
         bgColor={"#FFFFFF"}
         my={"20px"}

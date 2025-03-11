@@ -5,7 +5,6 @@ import {
   Flex,
   Image,
   Input,
-  Select,
   Step,
   StepIcon,
   StepIndicator,

@@ -11,7 +11,7 @@ const ApiSetting = () => {
         gap={"50px"}
       >
         <Flex
-          width={"1060px"}
+          width={"100%"}
           height={"200px"}
           p={"20px"}
           direction={"column"}
@@ -39,7 +39,7 @@ const ApiSetting = () => {
           </Flex>
         </Flex>
         <Flex
-          width={"1060px"}
+          width={"100%"}
           height={"140px"}
           p={"20px"}
           direction={"column"}

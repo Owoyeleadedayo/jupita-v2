@@ -28,6 +28,7 @@ const AnalyzeDetails = () => {
           <Flex width={"100%"} mx={"10px"} position={"relative"}>
             <Tabs
               index={tabIndex}
+              width={"100%"}
               onChange={handleTabChange}
               variant="soft-rounded"
               colorScheme="blue"
@@ -37,7 +38,7 @@ const AnalyzeDetails = () => {
                 bg={"#e6edf5"}
                 p={"3px"}
                 borderRadius={"18px"}
-                gap={'5px'}
+                gap={"5px"}
               >
                 <Tab
                   bg={tabIndex === 0 ? "#1F5AA3" : "transparent"}
