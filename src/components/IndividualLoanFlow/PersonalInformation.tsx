@@ -84,7 +84,7 @@ const PersonalInformation = () => {
                             width={"100%"} // Set the size of the icon
                             height={"100%"}
                             borderRadius={"50%"}
-                            p={'5px'}
+                            p={"5px"}
                           />
                         }
                       />
@@ -140,68 +140,94 @@ const PersonalInformation = () => {
                   fontSize={"22px"}
                   color={"#0A1629"}
                 >
-                  Loan Information
+                  Personal Information
                 </Text>
               </Flex>
               <Flex width={"403px"} height={"300px"}>
                 <Flex direction={"column"} gap={"20px"}>
-                  <Flex direction={"column"} gap={"3px"}>
-                    <Text
-                      fontFamily={"Nunito Sans"}
-                      fontWeight={700}
-                      fontSize={"14px"}
-                      color={"#7D8592"}
-                    >
-                      How much loan do you need?
-                    </Text>
-                    <Input
-                      type="text"
-                      width={"403px"}
-                      borderRadius={"8px"}
-                      placeholder="Enter the amount you need"
-                      fontFamily={"Nunito Sans"}
-                      fontWeight={400}
-                      fontSize={"14px"}
-                      color={"#7D8592"}
-                    />
+                  <Flex justifyContent={"space-between"} gap={"20px"}>
+                    <Flex direction={"column"} gap={"3px"}>
+                      <Text
+                        fontFamily={"Nunito Sans"}
+                        fontWeight={700}
+                        fontSize={"14px"}
+                        color={"#7D8592"}
+                        textTransform={"capitalize"}
+                      >
+                        First name
+                      </Text>
+                      <Input
+                        type="text"
+                        borderRadius={"8px"}
+                        placeholder="Enter First Name"
+                        fontFamily={"Nunito Sans"}
+                        fontWeight={400}
+                        fontSize={"14px"}
+                        color={"#7D8592"}
+                      />
+                    </Flex>
+                    <Flex direction={"column"} gap={"3px"}>
+                      <Text
+                        fontFamily={"Nunito Sans"}
+                        fontWeight={700}
+                        fontSize={"14px"}
+                        color={"#7D8592"}
+                        textTransform={"capitalize"}
+                      >
+                        Other name
+                      </Text>
+                      <Input
+                        type="text"
+                        borderRadius={"8px"}
+                        placeholder="Enter First Name"
+                        fontFamily={"Nunito Sans"}
+                        fontWeight={400}
+                        fontSize={"14px"}
+                        color={"#7D8592"}
+                      />
+                    </Flex>
                   </Flex>
-                  <Flex direction={"column"} gap={"3px"}>
-                    <Text
-                      fontFamily={"Nunito Sans"}
-                      fontWeight={700}
-                      fontSize={"14px"}
-                      color={"#7D8592"}
-                    >
-                      How long do you want to repay for?
-                    </Text>
-                    <Select
-                      fontFamily={"Nunito Sans"}
-                      fontWeight={400}
-                      fontSize={"14px"}
-                      color={"#7D8592"}
-                    >
-                      <option value="select_tenor">Select Tenor</option>
-                    </Select>
-                  </Flex>
-                  <Flex direction={"column"} gap={"3px"}>
-                    <Text
-                      fontFamily={"Nunito Sans"}
-                      fontWeight={700}
-                      fontSize={"14px"}
-                      color={"#7D8592"}
-                    >
-                      What is the purpose of this loan?
-                    </Text>
-                    <Input
-                      type="text"
-                      width={"403px"}
-                      borderRadius={"8px"}
-                      placeholder="Enter the reason for this loan"
-                      fontFamily={"Nunito Sans"}
-                      fontWeight={400}
-                      fontSize={"14px"}
-                      color={"#7D8592"}
-                    />
+                  <Flex justifyContent={"space-between"} gap={"20px"}>
+                    <Flex direction={"column"} gap={"3px"}>
+                      <Text
+                        fontFamily={"Nunito Sans"}
+                        fontWeight={700}
+                        fontSize={"14px"}
+                        color={"#7D8592"}
+                        textTransform={"capitalize"}
+                      >
+                        Last name
+                      </Text>
+                      <Input
+                        type="text"
+                        borderRadius={"8px"}
+                        placeholder="Enter Last Name"
+                        fontFamily={"Nunito Sans"}
+                        fontWeight={400}
+                        fontSize={"14px"}
+                        color={"#7D8592"}
+                      />
+                    </Flex>
+                    <Flex direction={"column"} gap={"3px"}>
+                      <Text
+                        fontFamily={"Nunito Sans"}
+                        fontWeight={700}
+                        fontSize={"14px"}
+                        color={"#7D8592"}
+                        textTransform={"capitalize"}
+                      >
+                        Date of birth
+                      </Text>
+                      <Input
+                        type="date"
+                        borderRadius={"8px"}
+                        placeholder="Enter First Name"
+                        fontFamily={"Nunito Sans"}
+                        fontWeight={400}
+                        fontSize={"14px"}
+                        color={"#7D8592"}
+                      />
+                    </Flex>
                   </Flex>
                 </Flex>
               </Flex>

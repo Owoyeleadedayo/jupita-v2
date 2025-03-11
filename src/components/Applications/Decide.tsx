@@ -17,6 +17,8 @@ import { FaCircleCheck } from "react-icons/fa6";
 import DataModal from "./DataModal";
 import ProfileModal from "./ProfileModal";
 import { SetStateAction, useState } from "react";
+import CommentModal from "./CommentModal";
+import ApproveModal from "./ApproveModal";
 
 const Decide = () => {
   const [showLoanDecision, setShowLoanDecision] = useState(false);
@@ -36,6 +38,16 @@ const Decide = () => {
    }
 
     const {isOpen:openData, onClose:closeData, onOpen:onOpenData} = useDisclosure()
+    const {
+      isOpen: isOpenApprove,
+      onClose: onCloseApprove,
+      onOpen: onOpenApprove,
+    } = useDisclosure();
+    const {
+      isOpen: isOpenComment,
+      onClose: onCloseComment,
+      onOpen: onOpenComment,
+    } = useDisclosure();
       const {
         isOpen: isOpenProfile,
         onClose: onCloseProfile,
@@ -46,7 +58,7 @@ const Decide = () => {
       <Flex width={"100%"} height={"100%"} gap={"20px"} my={"20px"}>
         <Flex
           width={"268px"}
-          height={"750px"}
+          height={"100%"}
           bgColor={"#FFFFFF"}
           py={"20px"}
           px={"10px"}
@@ -223,7 +235,7 @@ const Decide = () => {
               </Text>
             </Flex>
           </Flex>
-          <Flex mt={"50px"} justifyContent={"center"} alignItems={"center"}>
+          <Flex mt={"30px"} justifyContent={"center"} alignItems={"center"}>
             <Button
               width={""}
               height={{ md: "40px", base: "30px" }}
@@ -319,12 +331,7 @@ const Decide = () => {
           </Flex>
         )}
         {showLoanDecision && (
-          <Flex
-            width={"100%"}
-            height={"100%"}
-            // direction={"column"}
-            gap={"20px"}
-          >
+          <Flex width={"100%"} height={"100%"} gap={"20px"}>
             <Flex
               width={"500px"}
               height={"100%"}
@@ -628,16 +635,22 @@ const Decide = () => {
                 </Select>
               </Flex>
               <Flex mt={"20px"} gap={"20px"}>
-                <Button
-                  bg={"#067B58"}
-                  variant={"none"}
-                  fontFamily={"Nunito Sans"}
-                  fontSize={"16px"}
-                  fontWeight={700}
-                  color={"#FFFFFF"}
-                >
-                  Approve
-                </Button>
+                <Flex onClick={onOpenApprove}>
+                  <Button
+                    bg={"#067B58"}
+                    variant={"none"}
+                    fontFamily={"Nunito Sans"}
+                    fontSize={"16px"}
+                    fontWeight={700}
+                    color={"#FFFFFF"}
+                  >
+                    Approve
+                  </Button>
+                  <ApproveModal
+                    isOpenApprove={isOpenApprove}
+                    onCloseApprove={onCloseApprove}
+                  />
+                </Flex>
                 <Button
                   bg={"#D60F0F"}
                   variant={"none"}
@@ -651,7 +664,7 @@ const Decide = () => {
               </Flex>
             </Flex>
             <Flex
-              width={"300px"}
+              width={"310px"}
               height={"100%"}
               bg={"#FFFFFF"}
               p={"20px"}
@@ -668,14 +681,21 @@ const Decide = () => {
                 >
                   Comments
                 </Text>
-                <Text
-                  fontFamily={"Nunito Sans"}
-                  fontSize={"12px"}
-                  fontWeight={700}
-                  color={"#1F5AA3"}
-                >
-                  + Add New
-                </Text>
+                <Flex onClick={onOpenComment}>
+                  <Text
+                    fontFamily={"Nunito Sans"}
+                    fontSize={"12px"}
+                    fontWeight={700}
+                    color={"#1F5AA3"}
+                    cursor={"pointer"}
+                  >
+                    + Add New
+                  </Text>
+                  <CommentModal
+                    isOpenComment={isOpenComment}
+                    onCloseComment={onCloseComment}
+                  />
+                </Flex>
               </Flex>
             </Flex>
           </Flex>

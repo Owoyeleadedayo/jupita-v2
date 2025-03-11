@@ -41,7 +41,7 @@ const RequestCard = () => {
         {card.map((item, index) => (
           <Flex
             key={index}
-            width={"260px"}
+            width={"100%"}
             height={"136px"}
             p={"20px"}
             justifyContent={"space-between"}
