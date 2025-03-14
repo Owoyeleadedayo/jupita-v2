@@ -261,8 +261,8 @@ const Decide = () => {
         </Flex>
         {!showLoanDecision && (
           <Flex
-            width={"800px"}
-            height={"917px"}
+            width={"100%"}
+            height={"100vh"}
             bgColor={"#FFFFFF"}
             p={"20px"}
             borderRadius={"12px"}

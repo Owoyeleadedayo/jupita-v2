@@ -9,12 +9,15 @@ import {
   MenuItem,
   MenuList,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { FaPlus } from "react-icons/fa6";
 import PDF from "../../assets/images/pdf.png";
 import { RiMore2Line } from "react-icons/ri";
+import BankStatementModal from "./BankStatementModal";
 
 const Documents = () => {
+  const { isOpen: openStatement, onClose: closeStatement, onOpen: onOpenStatement }= useDisclosure();
   return (
     <>
       <Flex
@@ -78,7 +81,7 @@ const Documents = () => {
                   />
                 </Box>
               </Flex>
-              <Flex direction={"column"}>
+              <Flex direction={"column"} onClick={onOpenStatement} cursor={'pointer'}>
                 <Text
                   fontFamily={"Nunito Sans"}
                   fontSize={"14px"}
@@ -95,6 +98,10 @@ const Documents = () => {
                 >
                   10 MB PDF
                 </Text>
+                <BankStatementModal
+                  openStatement={openStatement}
+                  closeStatement={closeStatement}
+                />
               </Flex>
             </Flex>
             <Flex>

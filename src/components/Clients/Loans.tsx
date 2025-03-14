@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import {
   Box,
   Button,
@@ -283,7 +284,11 @@ const Loans = () => {
             <DataModal openData={openData} closeData={closeData} />
           </Flex>
         </Flex>
-        <Flex justifyContent={"flex-start"} alignItems={"self-start"}>
+        <Flex
+          width={"100%"}
+          justifyContent={"flex-start"}
+          alignItems={"self-start"}
+        >
           <Table>
             <Thead>
               <Tr>
@@ -292,6 +297,7 @@ const Loans = () => {
                   fontSize={"14px"}
                   fontWeight={700}
                   color={"#0A1629"}
+                  textTransform={"capitalize"}
                 >
                   s/n
                 </Th>
@@ -300,6 +306,7 @@ const Loans = () => {
                   fontSize={"14px"}
                   fontWeight={700}
                   color={"#0A1629"}
+                  textTransform={"capitalize"}
                 >
                   Loan amount
                 </Th>
@@ -308,6 +315,7 @@ const Loans = () => {
                   fontSize={"14px"}
                   fontWeight={700}
                   color={"#0A1629"}
+                  textTransform={"capitalize"}
                 >
                   Interest
                 </Th>
@@ -316,6 +324,7 @@ const Loans = () => {
                   fontSize={"14px"}
                   fontWeight={700}
                   color={"#0A1629"}
+                  textTransform={"capitalize"}
                 >
                   Total repayment
                 </Th>
@@ -324,6 +333,7 @@ const Loans = () => {
                   fontSize={"14px"}
                   fontWeight={700}
                   color={"#0A1629"}
+                  textTransform={"capitalize"}
                 >
                   Amount repaid
                 </Th>
@@ -332,6 +342,7 @@ const Loans = () => {
                   fontSize={"14px"}
                   fontWeight={700}
                   color={"#0A1629"}
+                  textTransform={"capitalize"}
                 >
                   Status
                 </Th>
@@ -340,12 +351,13 @@ const Loans = () => {
                   fontSize={"14px"}
                   fontWeight={700}
                   color={"#0A1629"}
+                  textTransform={"capitalize"}
                 >
                   Creation date
                 </Th>
               </Tr>
             </Thead>
-            <Tbody onClick={onOpenDetails} cursor={'pointer'}>
+            <Tbody onClick={onOpenDetails} cursor={"pointer"}>
               {loanTable.map((item, index) => (
                 <Tr key={index} bg={"#FFFFFF"}>
                   <Td

@@ -28,6 +28,7 @@ const ClientsInfo = () => {
           <Flex width={"100%"} mx={"10px"} position={"relative"}>
             <Tabs
               index={tabIndex}
+              width={"100%"}
               onChange={handleTabChange}
               variant="soft-rounded"
               colorScheme="blue"

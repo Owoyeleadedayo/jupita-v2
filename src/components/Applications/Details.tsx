@@ -26,11 +26,11 @@ const Details = () => {
         <Flex width={"100%"}>
           <Flex width={"100%"} mx={"10px"} position={"relative"}>
             <Tabs
+              width={"100%"}
               index={tabIndex}
               onChange={handleTabChange}
               variant="soft-rounded"
               colorScheme="blue"
-              width={"100%"}
             >
               <TabList
                 maxWidth={"360px"}

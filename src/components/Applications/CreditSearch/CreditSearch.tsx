@@ -211,7 +211,7 @@ const CreditSearch = () => {
           </Flex>
         </Flex>
         <Flex
-          width={"800px"}
+          width={"100%"}
           height={"917px"}
           bgColor={"#FFFFFF"}
           p={"20px"}

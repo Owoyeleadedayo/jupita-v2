@@ -225,7 +225,7 @@ const LoanDetails = () => {
         <Flex direction={"column"} gap={"20px"}>
           <Flex width={"100%"} gap={"20px"}>
             <Flex
-              width={"530px"}
+              width={"100%"}
               height={"200px"}
               bgColor={"#FFFFFF"}
               p={"20px"}
@@ -303,7 +303,7 @@ const LoanDetails = () => {
               </Flex>
             </Flex>
             <Flex
-              width={"250px"}
+              width={"100%"}
               height={"200px"}
               bgColor={"#FFFFFF"}
               direction={"column"}
