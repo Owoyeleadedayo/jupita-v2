@@ -88,7 +88,6 @@ const SignIn = () => {
                   <Input
                     type="email"
                     required
-                    width={"403px"}
                     placeholder="your_email@gmail.com"
                     fontFamily="Nunito Sans"
                     fontSize="16px"

@@ -29,7 +29,7 @@ const SignUp = () => {
   });
   return (
     <>
-      <Flex width={"100%"} height={"100vh"}>
+      <Flex width={"100%"} height={"100%"}>
         <Flex width={"30%"} height={"100vh"} bg={"#1F5AA3"}>
           <Flex direction={"column"} gap={"40px"} p={"50px"}>
             <Box width={"40px"} height={"40px"}>
@@ -92,7 +92,7 @@ const SignUp = () => {
             alignItems={"center"}
             direction={"column"}
             gap={"5px"}
-            py={"10px"}
+            py={"15px"}
           >
             <Flex alignItems={"center"} direction={"column"} gap={"10px"}>
               <Flex>
@@ -251,7 +251,7 @@ const SignUp = () => {
               </Flex>
             </Flex>
             <Divider />
-            <Flex position={"absolute"} right={0} bottom={"2px"} px={"20px"}>
+            <Flex position={"absolute"} right={0} bottom={"7px"} px={"20px"}>
               <Button
                 width={"145px"}
                 height={"44px"}
