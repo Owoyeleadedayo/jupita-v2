@@ -17,6 +17,7 @@ import {
 } from "@chakra-ui/react";
 import Logo from "../../assets/images/white.png";
 import { FaArrowRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const LoanInformation = () => {
   const steps = [
@@ -32,6 +33,8 @@ const LoanInformation = () => {
     index: 1,
     count: steps.length,
   });
+
+  const navigate = useNavigate();
   return (
     <>
       <Flex width={"100%"} height={"100vh"}>
@@ -61,7 +64,7 @@ const LoanInformation = () => {
               <Stepper
                 index={activeStep}
                 orientation="vertical"
-                height="350px"
+                height="300px"
                 gap="0"
               >
                 {steps.map((step, index) => (
@@ -190,7 +193,7 @@ const LoanInformation = () => {
               </Flex>
             </Flex>
             <Divider mt={"90px"} />
-            <Flex position={"absolute"} right={0} bottom={"1px"} px={"20px"}>
+            <Flex position={"absolute"} right={0} bottom={"4px"} px={"20px"}>
               <Button
                 width={"145px"}
                 height={"44px"}
@@ -200,7 +203,7 @@ const LoanInformation = () => {
                 fontSize={"16px"}
                 color={"#FFFFFF"}
                 variant={"none"}
-                // onClick={() => navigate("/verify")}
+                onClick={() => navigate("/personal-info")}
               >
                 Continue{" "}
                 <Flex pl={"10px"}>

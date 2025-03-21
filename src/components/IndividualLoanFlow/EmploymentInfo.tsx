@@ -16,9 +16,10 @@ import {
   useSteps,
 } from "@chakra-ui/react";
 import Logo from "../../assets/images/white.png";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import {  FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-const PersonalInformation = () => {
+
+const EmploymentInfo = () => {
   const steps = [
     { title: "Loan information" },
     { title: "Personal information" },
@@ -29,7 +30,7 @@ const PersonalInformation = () => {
   ];
 
   const { activeStep } = useSteps({
-    index: 1,
+    index: 3,
     count: steps.length,
   });
 
@@ -81,7 +82,7 @@ const PersonalInformation = () => {
                           <StepIcon
                             color={"blue"}
                             bg={"white"}
-                            width={"100%"} // Set the size of the icon
+                            width={"100%"}
                             height={"100%"}
                             borderRadius={"50%"}
                             p={"5px"}
@@ -96,7 +97,12 @@ const PersonalInformation = () => {
                         fontWeight={600}
                         fontSize={"18px"}
                         color={
-                          index === 0 || index === 1 ? "#FFFFFF" : "#FFFFFF4D"
+                          index === 0 ||
+                          index === 1 ||
+                          index === 2 ||
+                          index === 3
+                            ? "#FFFFFF"
+                            : "#FFFFFF4D"
                         }
                       >
                         {step.title}
@@ -128,7 +134,7 @@ const PersonalInformation = () => {
                 fontSize={"14px"}
                 color={"#1F5AA3"}
               >
-                Step 1/6
+                Step 4/6
               </Text>
             </Flex>
             <Flex>
@@ -138,7 +144,7 @@ const PersonalInformation = () => {
                 fontSize={"22px"}
                 color={"#0A1629"}
               >
-                Personal Information
+                Employment Information
               </Text>
             </Flex>
 
@@ -153,13 +159,13 @@ const PersonalInformation = () => {
                       color={"#7D8592"}
                       textTransform={"capitalize"}
                     >
-                      First name
+                      Employer name
                     </Text>
                     <Input
                       type="text"
                       width={"190px"}
                       borderRadius={"8px"}
-                      placeholder="Enter First Name"
+                      placeholder="Enter Employer Name"
                       fontFamily={"Nunito Sans"}
                       fontWeight={400}
                       fontSize={"14px"}
@@ -174,7 +180,7 @@ const PersonalInformation = () => {
                       color={"#7D8592"}
                       textTransform={"capitalize"}
                     >
-                      Other name
+                      Employment type
                     </Text>
                     <Input
                       type="text"
@@ -198,13 +204,13 @@ const PersonalInformation = () => {
                       color={"#7D8592"}
                       textTransform={"capitalize"}
                     >
-                      Last name
+                      Sector
                     </Text>
                     <Input
                       type="text"
                       width={"190px"}
                       borderRadius={"8px"}
-                      placeholder="Enter Last Name"
+                      placeholder="Select Sector"
                       fontFamily={"Nunito Sans"}
                       fontWeight={400}
                       fontSize={"14px"}
@@ -219,7 +225,7 @@ const PersonalInformation = () => {
                       color={"#7D8592"}
                       textTransform={"capitalize"}
                     >
-                      Date of birth
+                      Employment start date
                     </Text>
                     <Input
                       type="date"
@@ -243,13 +249,13 @@ const PersonalInformation = () => {
                       color={"#7D8592"}
                       textTransform={"capitalize"}
                     >
-                      Mobile number
+                      Net income
                     </Text>
                     <Input
                       type="number"
                       width={"190px"}
                       borderRadius={"8px"}
-                      placeholder="Enter Last Name"
+                      placeholder="enter net income"
                       fontFamily={"Nunito Sans"}
                       fontWeight={400}
                       fontSize={"14px"}
@@ -264,13 +270,13 @@ const PersonalInformation = () => {
                       color={"#7D8592"}
                       textTransform={"capitalize"}
                     >
-                      Gender
+                      Designation
                     </Text>
                     <Input
                       type="text"
                       width={"190px"}
                       borderRadius={"8px"}
-                      placeholder="Enter First Name"
+                      placeholder="select designation"
                       fontFamily={"Nunito Sans"}
                       fontWeight={400}
                       fontSize={"14px"}
@@ -288,12 +294,12 @@ const PersonalInformation = () => {
                       color={"#7D8592"}
                       textTransform={"capitalize"}
                     >
-                      Email address
+                      Work email
                     </Text>
                     <Input
                       type="email"
                       borderRadius={"8px"}
-                      placeholder="Enter The Amount You Need"
+                      placeholder="Enter Your Work Email"
                       fontFamily={"Nunito Sans"}
                       fontWeight={400}
                       fontSize={"14px"}
@@ -311,12 +317,12 @@ const PersonalInformation = () => {
                       color={"#7D8592"}
                       textTransform={"capitalize"}
                     >
-                      Home address
+                      Employer address
                     </Text>
                     <Input
                       type="text"
                       borderRadius={"8px"}
-                      placeholder="Enter Your Address"
+                      placeholder="Enter Address"
                       fontFamily={"Nunito Sans"}
                       fontWeight={400}
                       fontSize={"14px"}
@@ -379,12 +385,8 @@ const PersonalInformation = () => {
               <Divider />
             </Flex>
 
-            <Flex
-              justifyContent={"space-between"}
-              alignItems={"center"}
-              mx={"10px"}
-            >
-              <Flex
+            <Flex alignItems={"end"} justifyContent={"end"} >
+              {/* <Flex
                 justifyContent={"center"}
                 alignItems={"center"}
                 width={"145px"}
@@ -402,9 +404,9 @@ const PersonalInformation = () => {
                 >
                   Previous
                 </Text>
-              </Flex>
+              </Flex> */}
 
-              <Flex justifyContent={"end"}>
+              <Flex>
                 <Button
                   width={"145px"}
                   height={"44px"}
@@ -414,7 +416,7 @@ const PersonalInformation = () => {
                   fontSize={"16px"}
                   color={"#FFFFFF"}
                   variant={"none"}
-                  onClick={() => navigate("/validation")}
+                  onClick={() => navigate("/employment-docs")}
                 >
                   Continue{" "}
                   <Flex pl={"10px"}>
@@ -430,4 +432,4 @@ const PersonalInformation = () => {
   );
 };
 
-export default PersonalInformation;
+export default EmploymentInfo;

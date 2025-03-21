@@ -1,5 +1,6 @@
 import { Flex, Text } from "@chakra-ui/react"
 import SummaryTable from "./SummaryTable";
+import SummaryChart from "./SummaryChart";
 
 const Summary = () => {
     const summaryCard = [
@@ -72,6 +73,7 @@ const Summary = () => {
           ))}
         </Flex>
         <SummaryTable />
+        <SummaryChart />
       </Flex>
     </>
   );

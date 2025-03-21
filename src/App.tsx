@@ -20,6 +20,10 @@ import AnalyzePage from './Pages/Analyze/AnalyzePage';
 import AnalyzeDetailsPage from "./Pages/Analyze/AnalyzeDetailsPage";
 import PersonalInformation from './components/IndividualLoanFlow/PersonalInformation';
 import DecidePage from './Pages/Decide/DecidePage';
+import BvnValidation from './components/IndividualLoanFlow/BvnValidation';
+import EmploymentInfo from './components/IndividualLoanFlow/EmploymentInfo';
+import EmploymentDocs from './components/IndividualLoanFlow/EmploymentDocs';
+import BankStatement from './components/IndividualLoanFlow/BankStatement';
 
 function App() {
 
@@ -33,6 +37,10 @@ function App() {
           <Route path="/success" element={<SuccessPage />} />
           <Route path="/loan-info" element={<LoanInformation />} />
           <Route path="/personal-info" element={<PersonalInformation />} />
+          <Route path="/validation" element={<BvnValidation />} />
+          <Route path="/employment-info" element={<EmploymentInfo />} />
+          <Route path="/employment-docs" element={<EmploymentDocs />} />
+          <Route path="/statement" element={<BankStatement />} />
           <Route element={<LayoutWithSidebar />}>
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/api-status" element={<ApiStatusPage />} />

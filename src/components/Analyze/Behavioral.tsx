@@ -1,4 +1,5 @@
-import { Flex, Text } from "@chakra-ui/react"
+import { Box, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
+import BehavioralChart from "./BehavioralChart";
 
 const Behavioral = () => {
   const behavioralCard = [
@@ -38,56 +39,104 @@ const Behavioral = () => {
         >
           Roundtripping Analysis
         </Text>
-        <Flex
-          width={"100%"}
-          justifyContent={"space-between"}
-          alignItems={"center"}
-        >
-          <Flex
-            width={"100%"}
-            height={"100%"}
-            bgColor={"#FFFFFF"}
-            borderRadius={"10px"}
-            px={"15px"}
-            gap={"20px"}
-          >
-            {behavioralCard.map((item, index) => (
+        <Grid templateColumns="repeat(5, 1fr)">
+          <GridItem colSpan={3}>
+            <Flex
+              width={"100%"}
+              height={"100%"}
+              bgColor={"#FFFFFF"}
+              borderRadius={"10px"}
+              px={"15px"}
+              gap={"20px"}
+            >
+              {behavioralCard.map((item, index) => (
+                <Flex
+                  key={index}
+                  width={"100%"}
+                  height={"100px"}
+                  bg={item.bgColor}
+                  justifyContent={"center"}
+                  alignItems={"center"}
+                  direction={"column"}
+                  borderRadius={"14px"}
+                >
+                  <Text
+                    fontFamily={"Nunito Sans"}
+                    fontSize={"20px"}
+                    fontWeight={700}
+                    color={"#0A1629"}
+                  >
+                    {item.amount}
+                  </Text>
+                  <Text
+                    fontFamily={"Nunito Sans"}
+                    fontSize={"12px"}
+                    fontWeight={400}
+                    color={"#0A1629"}
+                  >
+                    {item.title}
+                  </Text>
+                </Flex>
+              ))}
+            </Flex>
+          </GridItem>
+          <GridItem colSpan={2}>
+            <Flex width={"100%"} height={"100%"}>
+              <BehavioralChart />
               <Flex
-                key={index}
-                width={"100%"}
-                height={"100px"}
-                bg={item.bgColor}
-                justifyContent={"center"}
-                alignItems={"center"}
+                alignItems={"start"}
                 direction={"column"}
-                borderRadius={"14px"}
+                gap={"20px"}
               >
-                <Text
-                  fontFamily={"Nunito Sans"}
-                  fontSize={"20px"}
-                  fontWeight={700}
-                  color={"#0A1629"}
-                >
-                  {item.amount}
-                </Text>
-                <Text
-                  fontFamily={"Nunito Sans"}
-                  fontSize={"12px"}
-                  fontWeight={400}
-                  color={"#0A1629"}
-                >
-                  {item.title}
-                </Text>
+                <Flex justifyContent={"start"} alignItems="center" gap="10px">
+                  <Box width="10px" height="10px" bg="#3F8CFF" />
+                  <Text
+                    fontFamily="Nunito Sans"
+                    fontSize="13px"
+                    fontWeight={400}
+                  >
+                    Payments
+                  </Text>
+                </Flex>
+                <Flex justifyContent={"start"} alignItems="center" gap="10px">
+                  <Box width="10px" height="10px" bg="#067B58" />
+                  <Text
+                    fontFamily="Nunito Sans"
+                    fontSize="13px"
+                    fontWeight={400}
+                  >
+                    Crypto
+                  </Text>
+                </Flex>
+                <Flex justifyContent={"start"} alignItems="center" gap="10px">
+                  <Box width="10px" height="10px" bg="#C44606" />
+                  <Text
+                    fontFamily="Nunito Sans"
+                    fontSize="13px"
+                    fontWeight={400}
+                  >
+                    Gambling
+                  </Text>
+                </Flex>
+                <Flex justifyContent={"start"} alignItems="center" gap="10px">
+                  <Box width="10px" height="10px" bg="#6BF0C8" />
+                  <Text
+                    fontFamily="Nunito Sans"
+                    fontSize="13px"
+                    fontWeight={400}
+                  >
+                    Loans
+                  </Text>
+                </Flex>
               </Flex>
-            ))}
-          </Flex>
-          <Flex></Flex>
-        </Flex>
+            </Flex>
+          </GridItem>
+        </Grid>
         <Flex
           width={"100%"}
           justifyContent={"space-between"}
           alignItems={"center"}
-          mt={'20px'}
+          mt={"20px"}
         >
           <Flex
             width={"450px"}
@@ -209,6 +258,6 @@ const Behavioral = () => {
       </Flex>
     </>
   );
-}
+};
 
-export default Behavioral
+export default Behavioral;
