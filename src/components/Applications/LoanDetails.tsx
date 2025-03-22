@@ -28,6 +28,7 @@ const LoanDetails = () => {
           direction={"column"}
           gap={"20px"}
           borderRadius={"10px"}
+          boxShadow={"md"}
         >
           <Flex width={"100%"} justifyContent={"space-between"}>
             <Flex>
@@ -232,6 +233,7 @@ const LoanDetails = () => {
               direction={"column"}
               gap={"20px"}
               borderRadius={"10px"}
+              boxShadow={"md"}
             >
               <Flex>
                 <Text
@@ -310,6 +312,7 @@ const LoanDetails = () => {
               gap={"20px"}
               p={"10px"}
               borderRadius={"10px"}
+              boxShadow={"md"}
             >
               <Flex justifyContent={"space-between"} alignItems={"center"}>
                 <Text

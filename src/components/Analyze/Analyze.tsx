@@ -208,6 +208,7 @@ const Analyze = () => {
               height={"40px"}
               variant={"none"}
               borderRadius={"10px"}
+              boxShadow={"md"}
             >
               <InputLeftElement pointerEvents="none">
                 <CiSearch color="#0A1629" fontSize={"18px"} />
@@ -229,6 +230,7 @@ const Analyze = () => {
               color={"#737791"}
               borderRadius={"10px"}
               variant={"none"}
+              boxShadow={"md"}
             >
               <BsFunnel color="#000000" fontSize={"18px"} />
             </Button>
@@ -248,7 +250,7 @@ const Analyze = () => {
           </Flex>
         </Flex>
         <Flex>
-          <Table>
+          <Table boxShadow={"md"}>
             <Thead>
               <Tr>
                 <Th

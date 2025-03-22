@@ -23,13 +23,14 @@ const Behavioral = () => {
     <>
       <Flex
         width={"100%"}
-        height={"100vh"}
+        height={"100%"}
         bgColor={"#FFFFFF"}
         p={"20px"}
         borderRadius={"12px"}
         direction={"column"}
         gap={"20px"}
         my={"20px"}
+        boxShadow={"md"}
       >
         <Text
           fontFamily={"Nunito Sans"}
@@ -59,6 +60,7 @@ const Behavioral = () => {
                   alignItems={"center"}
                   direction={"column"}
                   borderRadius={"14px"}
+                  boxShadow={"md"}
                 >
                   <Text
                     fontFamily={"Nunito Sans"}
@@ -81,13 +83,14 @@ const Behavioral = () => {
             </Flex>
           </GridItem>
           <GridItem colSpan={2}>
-            <Flex width={"100%"} height={"100%"}>
+            <Flex
+              width={"100%"}
+              height={"100%"}
+              justifyContent={"center"}
+              gap={"20px"}
+            >
               <BehavioralChart />
-              <Flex
-                alignItems={"start"}
-                direction={"column"}
-                gap={"20px"}
-              >
+              <Flex alignItems={"start"} direction={"column"} gap={"20px"}>
                 <Flex justifyContent={"start"} alignItems="center" gap="10px">
                   <Box width="10px" height="10px" bg="#3F8CFF" />
                   <Text
@@ -146,6 +149,7 @@ const Behavioral = () => {
             borderRadius={"12px"}
             direction={"column"}
             gap={"10px"}
+            boxShadow={"md"}
           >
             <Flex width={"100%"} justifyContent={"space-between"}>
               <Text
@@ -204,6 +208,7 @@ const Behavioral = () => {
             borderRadius={"12px"}
             direction={"column"}
             gap={"10px"}
+            boxShadow={"md"}
           >
             <Flex width={"100%"} justifyContent={"space-between"}>
               <Text

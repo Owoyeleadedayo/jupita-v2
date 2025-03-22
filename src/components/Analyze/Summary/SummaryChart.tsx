@@ -65,6 +65,7 @@ const SummaryChart = () => {
       gap="20px"
       p="20px"
       borderRadius="10px"
+      boxShadow={"md"}
     >
       <Flex gap="40px" justifyContent="end">
         <Flex alignItems="center" gap="5px">

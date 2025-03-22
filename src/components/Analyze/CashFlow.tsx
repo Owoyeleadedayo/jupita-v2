@@ -127,6 +127,7 @@ const CashFlow = () => {
             fontSize={"12px"}
             fontWeight={700}
             color={"#C418E6"}
+            boxShadow={"md"}
           >
             <option value="monthly">Monthly</option>
           </Select>
@@ -137,8 +138,9 @@ const CashFlow = () => {
           py={"10px"}
           borderRadius={"10px"}
           maxHeight="550px"
-          width={'100%'}
+          width={"100%"}
           overflowY="auto"
+          boxShadow={"md"}
         >
           <Table variant="simple">
             <Thead>

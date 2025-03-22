@@ -28,7 +28,7 @@ const CreditSearch = () => {
               onChange={handleTabChange}
               variant="soft-rounded"
               colorScheme="blue"
-              width={'100%'}
+              width={"100%"}
             >
               <TabList
                 maxWidth={"215px"}
@@ -36,6 +36,7 @@ const CreditSearch = () => {
                 p={"3px"}
                 borderRadius={"18px"}
                 gap={"8px"}
+                boxShadow={"md"}
               >
                 <Tab
                   bg={tabIndex === 0 ? "#1F5AA3" : "transparent"}

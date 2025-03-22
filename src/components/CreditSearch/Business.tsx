@@ -24,6 +24,7 @@ const Business = () => {
         direction={"column"}
         gap={"20px"}
         borderRadius={"10px"}
+        boxShadow={"md"}
       >
         <Flex direction={"column"}>
           <Text

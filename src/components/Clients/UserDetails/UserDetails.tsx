@@ -35,6 +35,7 @@ const UserDetails = () => {
           direction={"column"}
           gap={"20px"}
           borderRadius={"10px"}
+          boxShadow={"md"}
         >
           <Flex width={"100%"} justifyContent={"space-between"}>
             <Flex>
@@ -236,6 +237,7 @@ const UserDetails = () => {
           direction={"column"}
           gap={"30px"}
           borderRadius={"10px"}
+          boxShadow={"md"}
         >
           <Flex width={"100%"} justifyContent={"space-between"}>
             <Flex justifyContent={"center"} alignItems={"center"}>
@@ -435,6 +437,7 @@ const UserDetails = () => {
           py={"20px"}
           gap={"20px"}
           borderRadius={"10px"}
+          boxShadow={"md"}
         >
           <Flex px={"20px"}>
             <Text
@@ -516,10 +519,9 @@ const UserDetails = () => {
               fontWeight={600}
               color={"#3F8CFF"}
               gap={"5px"}
-              textTransform={'capitalize'}
+              textTransform={"capitalize"}
             >
-              View more{" "}
-                <IoIosArrowDown />
+              View more <IoIosArrowDown />
             </Button>
           </Flex>
         </Flex>

@@ -25,7 +25,11 @@ const ClientsInfo = () => {
     <>
       <Flex width={"100%"} height={"100%"} direction={"column"} gap={"20px"}>
         <Flex width={"100%"}>
-          <Flex width={"100%"} mx={"10px"} position={"relative"}>
+          <Flex
+            width={"100%"}
+            mx={"10px"}
+            position={"relative"}
+          >
             <Tabs
               index={tabIndex}
               width={"100%"}
@@ -39,6 +43,7 @@ const ClientsInfo = () => {
                 p={"3px"}
                 borderRadius={"18px"}
                 gap={"8px"}
+                boxShadow={"lg"}
               >
                 <Tab
                   bg={tabIndex === 0 ? "#1F5AA3" : "transparent"}

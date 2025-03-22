@@ -79,9 +79,10 @@ const BarCharts = () => {
     <Flex
       width="100%"
       bgColor="#FFFFFF"
-      borderRadius="10px"
+      borderRadius="14px"
       direction="column"
       gap="10px"
+      boxShadow={"md"}
     >
       <Flex p="20px">
         <Select
@@ -95,8 +96,8 @@ const BarCharts = () => {
           <option value="approved">Approved</option>
         </Select>
       </Flex>
-      <Flex width="100%" height="300px" flexGrow={1}>
-        <ResponsiveContainer width="100%" height="100%">
+      <Flex width="100%" height="100%" flexGrow={1}>
+        <ResponsiveContainer height="100%">
           <BarChart data={data} barSize={10}>
             <XAxis
               dataKey="name"

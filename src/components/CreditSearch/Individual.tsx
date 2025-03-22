@@ -24,6 +24,7 @@ const Individual = () => {
         direction={"column"}
         gap={"20px"}
         borderRadius={"10px"}
+        boxShadow={"md"}
       >
         <Flex direction={"column"}>
           <Text
@@ -128,7 +129,7 @@ const Individual = () => {
             </Flex>
           </Flex>
         </Flex>
-        <Flex my={'10px'}>
+        <Flex my={"10px"}>
           <Button
             variant={"none"}
             bgColor={"#1F5AA3"}

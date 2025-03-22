@@ -21,11 +21,12 @@ const Documents = () => {
         width={"100%"}
         height={"420px"}
         bgColor={"#FFFFFF"}
-        my={'20px'}
+        my={"20px"}
         p={"20px"}
         direction={"column"}
         gap={"20px"}
         borderRadius={"10px"}
+        boxShadow={"md"}
       >
         <Flex width={"100%"} justifyContent={"space-between"}>
           <Text

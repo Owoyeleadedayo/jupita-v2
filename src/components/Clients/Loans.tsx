@@ -93,6 +93,7 @@ const Loans = () => {
           direction={"column"}
           gap={"20px"}
           borderRadius={"10px"}
+          boxShadow={"md"}
         >
           <Flex width={"100%"} justifyContent={"space-between"}>
             <Flex>
@@ -289,7 +290,7 @@ const Loans = () => {
           justifyContent={"flex-start"}
           alignItems={"self-start"}
         >
-          <Table>
+          <Table borderRadius={'10px'} boxShadow={"md"}>
             <Thead>
               <Tr>
                 <Th

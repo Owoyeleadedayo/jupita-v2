@@ -38,7 +38,7 @@ const SummaryTable = () => {
           </Text>
         </Flex>
         <Flex>
-          <Table>
+          <Table boxShadow={"md"}>
             <Thead>
               <Tr>
                 <Th

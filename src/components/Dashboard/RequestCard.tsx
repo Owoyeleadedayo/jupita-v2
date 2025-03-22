@@ -37,7 +37,7 @@ const RequestCard = () => {
   ];
   return (
     <>
-      <Flex width={"100%"} height={"100%"} gap={"20px"}>
+      <Flex width={"100%"} height={"100%"} gap={"15px"}>
         {card.map((item, index) => (
           <Flex
             key={index}
@@ -47,7 +47,8 @@ const RequestCard = () => {
             justifyContent={"space-between"}
             direction={"column"}
             bg={item.bg}
-            borderRadius={"24px"}
+            borderRadius={"14px"}
+            boxShadow={"md"}
           >
             <Text
               fontFamily={"Nunito Sans"}

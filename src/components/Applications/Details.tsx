@@ -38,6 +38,7 @@ const Details = () => {
                 p={"3px"}
                 borderRadius={"18px"}
                 gap={"9px"}
+                boxShadow={"md"}
               >
                 <Tab
                   bg={tabIndex === 0 ? "#1F5AA3" : "transparent"}

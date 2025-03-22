@@ -32,14 +32,21 @@ const Summary = () => {
     ];
   return (
     <>
-      <Flex width={"100%"} height={"100%"} direction={"column"} my={"20px"} gap={'20px'}>
+      <Flex
+        width={"100%"}
+        height={"100%"}
+        direction={"column"}
+        my={"20px"}
+        gap={"20px"}
+      >
         <Flex
           width={"100%"}
           height={"100%"}
           bgColor={"#FFFFFF"}
           borderRadius={"10px"}
           px={"15px"}
-          gap={'20px'}
+          gap={"20px"}
+          boxShadow={"lg"}
         >
           {summaryCard.map((item, index) => (
             <Flex
@@ -52,6 +59,7 @@ const Summary = () => {
               direction={"column"}
               my={"20px"}
               borderRadius={"14px"}
+              boxShadow={"md"}
             >
               <Text
                 fontFamily={"Nunito Sans"}

@@ -28,6 +28,7 @@ const Documents = () => {
         direction={"column"}
         gap={"20px"}
         borderRadius={"10px"}
+        boxShadow={"md"}
       >
         <Flex width={"100%"} justifyContent={"space-between"}>
           <Text
@@ -81,7 +82,11 @@ const Documents = () => {
                   />
                 </Box>
               </Flex>
-              <Flex direction={"column"} onClick={onOpenStatement} cursor={'pointer'}>
+              <Flex
+                direction={"column"}
+                onClick={onOpenStatement}
+                cursor={"pointer"}
+              >
                 <Text
                   fontFamily={"Nunito Sans"}
                   fontSize={"14px"}

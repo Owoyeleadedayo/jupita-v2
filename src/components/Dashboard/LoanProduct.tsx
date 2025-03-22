@@ -3,7 +3,13 @@ import { Button, Flex, Progress, Table, Tbody, Td, Th, Thead, Tr } from "@chakra
 const LoanProduct = () => {
   return (
     <>
-      <Flex width={"409px"} height={"100%"} bg={"#FFFFFF"} borderRadius={"8px"}>
+      <Flex
+        width={"409px"}
+        height={"100%"}
+        bg={"#FFFFFF"}
+        borderRadius={"14px"}
+        boxShadow={"md"}
+      >
         <Table my={{ md: "30px", base: "10px" }} variant="simple">
           <Thead>
             <Tr>

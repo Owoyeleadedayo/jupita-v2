@@ -64,7 +64,7 @@ const ApiStatus = () => {
             Back
           </Text>
         </Flex>
-        <Flex justifyContent={'center'} gap={'20px'}>
+        <Flex alignItems={"center"} gap={"25px"}>
           {data.map((item, index) => (
             <Flex
               key={index}
@@ -78,7 +78,7 @@ const ApiStatus = () => {
               direction={"column"}
               gap={"10px"}
               borderRadius={"10px"}
-              boxShadow={"lg"}
+              boxShadow={"md"}
             >
               <Box width={"24px"} height={"24px"}>
                 <Image

@@ -21,6 +21,7 @@ const CreditSearch = () => {
           direction={"column"}
           gap={"20px"}
           borderRadius={"10px"}
+          boxShadow={"md"}
         >
           <Flex width={"100%"} justifyContent={"space-between"}>
             <Flex>
@@ -218,6 +219,7 @@ const CreditSearch = () => {
           borderRadius={"12px"}
           direction={"column"}
           gap={"20px"}
+          boxShadow={"md"}
         >
           <Flex gap={"20px"}>
             <Checkbox />

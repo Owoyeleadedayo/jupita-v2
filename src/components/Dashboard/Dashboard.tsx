@@ -1,47 +1,21 @@
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
-import { useEffect, useRef, useState } from 'react';
-import DatePicker from 'react-datepicker';
+import { Box, Button, Flex, Heading } from '@chakra-ui/react';
+// import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-import { MdDateRange } from 'react-icons/md';
 import RequestCard from './RequestCard';
 import BarCharts from './BarCharts';
 import LoanProduct from './LoanProduct';
 import { useNavigate } from 'react-router-dom';
+import { DatePicker } from 'antd';
+const { RangePicker } = DatePicker;
+import dayjs from "dayjs";
 
 const Dashboard = () => {
-    const [startDate, setStartDate] = useState<Date | null>(
-      new Date("2020-11-16")
-    );
-    const [endDate, setEndDate] = useState<Date | null>(new Date("2020-12-16"));
-    const [showPicker, setShowPicker] = useState(false);
-    const pickerRef = useRef<HTMLDivElement | null>(null);
-
-    const handleDateChange = (dates: [Date | null, Date | null] | null) => {
-      if (dates) {
-        setStartDate(dates[0]);
-        setEndDate(dates[1]);
-        setShowPicker(false);
-      }
-    };
-
-    useEffect(() => {
-      const handleClickOutside = (event: MouseEvent) => {
-        if (
-          pickerRef.current &&
-          !pickerRef.current.contains(event.target as Node)
-        ) {
-          setShowPicker(false);
-        }
-      };
-      document.addEventListener("mousedown", handleClickOutside);
-      return () =>
-        document.removeEventListener("mousedown", handleClickOutside);
-    }, []);
+  const dateFormat = "YYYY/MM/DD";
 
     const navigate = useNavigate();
   return (
     <>
-      <Flex width={'100%'} height={'100%'} direction={'column'} gap={'20px'}>
+      <Flex width={"100%"} height={"100%"} direction={"column"} gap={"20px"}>
         <Flex
           alignItems={{
             lg: "center",
@@ -71,58 +45,24 @@ const Dashboard = () => {
             >
               Period
             </Heading>
-            <Box position="relative" ref={pickerRef}>
-              <Flex
-                justifyContent="center"
-                alignItems="center"
-                gap="5px"
-                px="10px"
-                py="5px"
-                bgColor="#E6EDF5"
-                borderRadius="8px"
-                cursor="pointer"
-                onClick={() => setShowPicker(!showPicker)}
-              >
-                <MdDateRange />
-                <Text
-                  fontFamily="Nunito Sans"
-                  fontSize={{ md: "16px", base: "14px" }}
-                  fontWeight={400}
-                  color="#0A1629"
-                >
-                  {startDate ? startDate.toLocaleDateString() : "Start Date"} -{" "}
-                  {endDate ? endDate.toLocaleDateString() : "End Date"}
-                </Text>
-              </Flex>
-              {showPicker && (
-                <Box
-                  position="absolute"
-                  top="50px"
-                  left="0"
-                  zIndex="1000"
-                  bg="white"
-                  boxShadow="md"
-                  p="10px"
-                  borderRadius="8px"
-                >
-                  <DatePicker
-                    selected={startDate}
-                    onChange={handleDateChange}
-                    startDate={startDate}
-                    endDate={endDate}
-                    selectsRange
-                    inline
-                  />
-                </Box>
-              )}
+            <Box position="relative">
+              <RangePicker
+                defaultValue={[
+                  dayjs("2015/01/01", dateFormat),
+                  dayjs("2015/01/01", dateFormat),
+                ]}
+                format={dateFormat}
+              />
             </Box>
           </Box>
           <Flex mt={"10px"}>
             <Button
               width={"100%"}
-              height={{ md: "40px", base: "30px" }}
+              height={{ md: "30px", base: "30px" }}
               bgColor={"#1F5AA3"}
               fontSize={{ md: "14px", xl: "14px" }}
+              borderRadius={"8px"}
+              boxShadow={"lg"}
               lineHeight={"20px"}
               fontFamily={"Nunito Sans"}
               fontWeight={700}
@@ -139,7 +79,7 @@ const Dashboard = () => {
           </Flex>
         </Flex>
         <RequestCard />
-        <Flex gap={'10px'}>
+        <Flex gap={"10px"}>
           <BarCharts />
           <LoanProduct />
         </Flex>

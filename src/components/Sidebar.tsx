@@ -280,18 +280,18 @@ const NavItem = ({
         px={"12px"}
         py={"12px"}
         my={"4px"}
-        mx={"4px"}
+        mx={"12px"}
         borderRadius="lg"
         role="group"
         cursor="pointer"
         fontFamily={"Nunito Sans"}
         fontWeight={600}
         fontSize={"16px"}
-        bg={activePage === name ? "#1F5AA3" : "transparent"}
-        color={activePage === name ? "white" : "#7D8592"}
+        bg={activePage === name ? "#e8eef6" : "transparent"}
+        color={activePage === name ? "#1F5AA3" : "#7D8592"}
         _hover={{
-          bg: "#1F5AA3",
-          color: "white",
+          bg: "#e8eef6",
+          color: "#1F5AA3",
         }}
         onClick={handleNavigation}
       >
@@ -300,7 +300,7 @@ const NavItem = ({
             mr="4"
             fontSize="16"
             _groupHover={{
-              color: "white",
+              color: "#1F5AA3",
             }}
             as={icon}
           />

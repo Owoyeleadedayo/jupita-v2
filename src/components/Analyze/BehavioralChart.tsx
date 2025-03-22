@@ -1,3 +1,4 @@
+import { Flex } from "@chakra-ui/react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
 const data = [
@@ -11,24 +12,24 @@ const BehavioralChart = () => {
   const COLORS = ["#067B58", "#6BF0C8", "#C44606", "#3F8CFF"];
 
   return (
-    <div style={{ width: "100%", height: "100%" }}>
-      <ResponsiveContainer>
-        <PieChart>
-          <Pie
-            data={data}
-            cx="50%"
-            cy="50%"
-            innerRadius={30}
-            outerRadius={60}
-            dataKey="value"
-          >
-            {data.map((_entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index]} />
-            ))}
-          </Pie>
-        </PieChart>
-      </ResponsiveContainer>
-    </div>
+      <Flex width={'30%'} height={'100%'}>
+        <ResponsiveContainer>
+          <PieChart>
+            <Pie
+              data={data}
+              cx="50%"
+              cy="50%"
+              innerRadius={30}
+              outerRadius={60}
+              dataKey="value"
+            >
+              {data.map((_entry, index) => (
+                <Cell key={`cell-${index}`} fill={COLORS[index]} />
+              ))}
+            </Pie>
+          </PieChart>
+        </ResponsiveContainer>
+      </Flex>
   );
 };
 
