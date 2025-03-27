@@ -6,6 +6,7 @@ import {
   Image,
   Input,
   Select,
+  Spinner,
   Step,
   StepIndicator,
   Stepper,
@@ -18,6 +19,8 @@ import {
 import Logo from "../../assets/images/white.png";
 import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useRegister } from "../../api/register-business.query";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -27,6 +30,65 @@ const SignUp = () => {
     index: 1,
     count: steps.length,
   });
+
+    const [formData, setFormData] = useState({
+      business_name: "",
+      business_email: "",
+      phone_number: "",
+      business_type: "",
+      business_reg_number: "",
+      password: "",
+    });
+    const [isFormValid, setIsFormValid] = useState<boolean>(false);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [loading, setLoading] = useState(false); 
+
+    const {mutate: register} = useRegister();
+
+    const handleInputChange = (
+      e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    ) => {
+      const { name, value } = e.target;
+      setFormData((prev) => {
+        const newData = { ...prev, [name]: value };
+        const allFilled = Object.values(newData).every(
+          (val) => val.trim() !== ""
+        );
+        setIsFormValid(allFilled);
+        return newData;
+      });
+    };
+
+
+    const handleSignUp = (e: React.FormEvent) => {
+      e.preventDefault();
+      setLoading(true);
+      setErrorMessage("");
+
+      register(formData, {
+        onSuccess: (data: unknown) => {
+          console.log("Sign-up worked!", data);
+          setLoading(false);
+          navigate("/verify");
+        },
+        onError: (error: unknown) => {
+          console.error("Sign-up failed:", error);
+          setErrorMessage("Something went wrong. Please try again!");
+          setLoading(false);
+          setFormData({
+            business_name: "",
+            business_email: "",
+            phone_number: "",
+            business_type: "",
+            business_reg_number: "",
+            password: "",
+          });
+          setIsFormValid(false);
+        },
+      });
+    };
+
+
   return (
     <>
       <Flex width={"100%"} height={"100%"}>
@@ -128,6 +190,10 @@ const SignUp = () => {
                     </Text>
                     <Input
                       type="text"
+                      name="business_name"
+                      value={formData.business_name}
+                      onChange={handleInputChange}
+                      required
                       width={"403px"}
                       borderRadius={"8px"}
                       placeholder="Enter Your Business Name"
@@ -148,6 +214,10 @@ const SignUp = () => {
                     </Text>
                     <Input
                       type="text"
+                      name="business_reg_number"
+                      value={formData.business_reg_number}
+                      onChange={handleInputChange}
+                      required
                       width={"403px"}
                       borderRadius={"8px"}
                       placeholder="Enter Your Business Registration Number"
@@ -167,12 +237,20 @@ const SignUp = () => {
                       Business Type
                     </Text>
                     <Select
+                      name="business_type"
                       fontFamily={"Nunito Sans"}
+                      value={formData.business_type}
+                      onChange={handleInputChange}
+                      required
                       fontWeight={500}
                       fontSize={"14px"}
                       color={"#7D8592"}
                     >
-                      <option value="option1">Select Business Type</option>
+                      <option value="">Select Business Type</option>
+                      <option value="QuickLoan">QuickLoan</option>
+                      <option value="retail">Retail</option>
+                      <option value="service">Service</option>
+                      <option value="tech">Tech</option>
                     </Select>
                   </Flex>
                   <Flex direction={"column"} gap={"3px"}>
@@ -185,7 +263,11 @@ const SignUp = () => {
                       Email Address
                     </Text>
                     <Input
-                      type="text"
+                      name="business_email"
+                      type="email"
+                      value={formData.business_email}
+                      onChange={handleInputChange}
+                      required
                       width={"403px"}
                       borderRadius={"8px"}
                       placeholder="xyz@gmail.com"
@@ -218,7 +300,10 @@ const SignUp = () => {
                         <option value="+91">+91</option>
                       </Select>
                       <Input
-                        type="tel"
+                        name="phone_number"
+                        value={formData.phone_number}
+                        onChange={handleInputChange}
+                        required
                         width={"300px"}
                         placeholder="345 567-23-56"
                         fontWeight={400}
@@ -237,7 +322,11 @@ const SignUp = () => {
                       Password
                     </Text>
                     <Input
+                      name="password"
                       type="password"
+                      value={formData.password}
+                      onChange={handleInputChange}
+                      required
                       width={"403px"}
                       borderRadius={"8px"}
                       placeholder="••••••••"
@@ -249,10 +338,21 @@ const SignUp = () => {
                   </Flex>
                 </Flex>
               </Flex>
+              {errorMessage && (
+                <Text
+                  fontSize="14px"
+                  color="red.500"
+                  textAlign="center"
+                  mt="10px"
+                >
+                  {errorMessage}
+                </Text>
+              )}
             </Flex>
             <Divider />
             <Flex position={"absolute"} right={0} bottom={"7px"} px={"20px"}>
               <Button
+                type="submit"
                 width={"145px"}
                 height={"44px"}
                 bgColor={"#1F5AA3"}
@@ -261,9 +361,11 @@ const SignUp = () => {
                 fontSize={"16px"}
                 color={"#FFFFFF"}
                 variant={"none"}
-                onClick={() => navigate("/verify")}
+                isDisabled={!isFormValid || loading}
+                isLoading={loading}
+                onClick={handleSignUp}
               >
-                Next Step{" "}
+                {loading ? <Spinner size="md" /> : "Next Step"}{" "}
                 <Flex pl={"10px"}>
                   <FaArrowRight color={"#FFFFFF"} />
                 </Flex>

@@ -1,9 +1,13 @@
-import { Box, Button, Checkbox, Flex, FormControl, FormLabel, Heading, Image, Input, InputGroup, InputRightElement, Text } from "@chakra-ui/react"
+import { Box, Button, Checkbox, Flex, FormControl, FormLabel, Heading, Image, Input, InputGroup, InputRightElement, Spinner, Text } from "@chakra-ui/react"
 import Logo from '../../assets/images/white.png'
+import Sign from "../../assets/images/signup.png";
+import dsh from "../../assets/images/dashboard.png";
+import meet from "../../assets/images/meetin.png";
 import { FaArrowRight } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { LuEye, LuEyeClosed } from "react-icons/lu";
+import { useLogin } from "../../api/login.query";
+import { Carousel } from "antd";
 
 const SignIn = () => {
   const [show, setShow] = useState(true);
@@ -11,7 +15,49 @@ const SignIn = () => {
   const handleClick = () => {
     setShow(!show);
   };
-  const navigate = useNavigate()
+
+  const [isFormValid, setIsFormValid] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false); 
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => {
+      const newData = { ...prev, [name]: value };
+      setIsFormValid(
+        newData.email.trim() !== "" && newData.password.trim() !== ""
+      );
+      return newData;
+    });
+  };
+
+  const { mutate: login } = useLogin();
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setErrorMessage("");
+
+    login(formData, {
+      onSuccess: (data) => {
+        console.log("Login successful:", data);
+        localStorage.setItem("token", data.token);
+        setLoading(false);
+        window.location.href = "/sign-up";
+      },
+      onError: (error) => {
+        console.error("Login didn’t work:", error);
+        setErrorMessage("Wrong email or password. Try again!");
+        setLoading(false);
+        setFormData({ email: "", password: "" });
+        setIsFormValid(false);
+      },
+    });
+  };
   return (
     <>
       <Flex width={"100%"} height={"100vh"} flexDirection={"row"}>
@@ -21,8 +67,10 @@ const SignIn = () => {
           height={"100%"}
           bgColor={"#1F5AA3"}
           flexDirection={"column"}
+          p={"50px"}
+          gap={"20px"}
         >
-          <Flex gap={"10px"} p={"50px"}>
+          <Flex gap={"10px"}>
             <Box width={"40px"} height={"40px"}>
               <Image
                 src={Logo}
@@ -40,6 +88,90 @@ const SignIn = () => {
             >
               Jupita
             </Text>
+          </Flex>
+          <Flex
+            direction={"column"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <Flex justifyContent={"center"}>
+              <Text
+                fontFamily={"Nunito Sans"}
+                fontWeight={700}
+                fontSize={"20px"}
+                color={"#FFFFFF"}
+                textTransform={"capitalize"}
+              >
+                Sign in to Jupita Admin
+              </Text>
+            </Flex>
+            <Carousel
+              autoplay={{ dotDuration: true }}
+              autoplaySpeed={5000}
+              style={{
+                width: "500px",
+                height: "400px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Box
+                width="90%"
+                height="100%"
+                bg="#FFF"
+                borderRadius="10px"
+                p="5px"
+                justifyContent={"center"}
+                alignItems={"center"}
+              >
+                <Image
+                  src={Sign}
+                  alt="Logo"
+                  width="90%"
+                  height="100%"
+                  objectFit="contain"
+                />
+              </Box>
+              <div>
+                <Box
+                  width="100%"
+                  height="100%"
+                  bg="#FFF"
+                  borderRadius="10px"
+                  p="5px"
+                  justifyContent={"center"}
+                  alignItems={"center"}
+                >
+                  <Image
+                    src={dsh}
+                    alt="Logo"
+                    width="100%"
+                    height="100%"
+                    objectFit="contain"
+                  />
+                </Box>
+              </div>
+              <div>
+                <Box
+                  width="97%"
+                  height="100%"
+                  bg="#FFF"
+                  borderRadius="10px"
+                  p="5px"
+                  justifyContent={"center"}
+                  alignItems={"center"}
+                >
+                  <Image
+                    src={meet}
+                    alt="Logo"
+                    width="97%"
+                    height="100%"
+                    objectFit="contain"
+                  />
+                </Box>
+              </div>
+            </Carousel>
           </Flex>
         </Flex>
         <Flex
@@ -72,7 +204,7 @@ const SignIn = () => {
                   color={"#0A1629"}
                   textTransform={"capitalize"}
                 >
-                  Sign In to Jupita Admin
+                  Sign In
                 </Heading>
               </Flex>
               <Flex flexDirection={"column"} pt={"25px"} gap={"10px"}>
@@ -86,7 +218,10 @@ const SignIn = () => {
                     Email Address
                   </Text>
                   <Input
+                    name="email"
                     type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     required
                     placeholder="your_email@gmail.com"
                     fontFamily="Nunito Sans"
@@ -108,6 +243,9 @@ const SignIn = () => {
                         type={show ? "password" : "text"}
                         placeholder="••••••••"
                         name="password"
+                        value={formData.password}
+                        onChange={handleInputChange}
+                        required
                         fontFamily="Nunito Sans"
                         fontSize="16px"
                         color={"#7D8592"}
@@ -163,6 +301,7 @@ const SignIn = () => {
                 mt={"30px"}
               >
                 <Button
+                  type={"submit"}
                   width={"170px"}
                   height={"48px"}
                   bgColor={"#1F5AA3"}
@@ -172,14 +311,23 @@ const SignIn = () => {
                   fontWeight={700}
                   variant={"none"}
                   boxShadow={"lg"}
-                  borderRadius={'12px'}
-                  onClick={() => navigate("/sign-up")}
+                  borderRadius={"12px"}
+                  disabled={!isFormValid || loading}
+                  isLoading={loading}
+                  onClick={handleLogin}
                 >
-                  Sign In{" "}
+                  {loading ? <Spinner size="md" /> : "Sign In"}
                   <Flex pl={"10px"}>
                     <FaArrowRight color={"#FFFFFF"} />
                   </Flex>
                 </Button>
+                <Flex justifyContent={"center"} alignItems={"center"}>
+                  {errorMessage && (
+                    <Text fontSize={"14px"} color="red">
+                      {errorMessage}
+                    </Text>
+                  )}
+                </Flex>
                 <Flex>
                   <Text
                     textAlign={"center"}

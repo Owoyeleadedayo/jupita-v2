@@ -18,6 +18,7 @@ const ApiSetting = () => {
           gap={"20px"}
           borderRadius={"10px"}
           bgColor={"#FFFFFF"}
+          boxShadow={"md"}
         >
           <Text
             fontFamily={"Nunito Sans"}
@@ -46,6 +47,7 @@ const ApiSetting = () => {
           gap={"20px"}
           borderRadius={"10px"}
           bgColor={"#FFFFFF"}
+          boxShadow={"md"}
         >
           <Text
             fontFamily={"Nunito Sans"}
@@ -55,7 +57,7 @@ const ApiSetting = () => {
           >
             API Documentation
           </Text>
-          <Flex alignItems={'center'} gap={"50px"}>
+          <Flex alignItems={"center"} gap={"50px"}>
             <Text fontFamily={"Nunito Sans"} fontSize={"14px"} fontWeight={400}>
               Check out our quickstart guide, faq's and documentation.
             </Text>

@@ -38,6 +38,7 @@ const LoanProduct = () => {
               height={"40px"}
               variant={"none"}
               borderRadius={"10px"}
+              boxShadow={"md"}
             >
               <InputLeftElement pointerEvents="none">
                 <CiSearch color="#0A1629" fontSize={"18px"} />
@@ -59,6 +60,7 @@ const LoanProduct = () => {
               color={"#737791"}
               borderRadius={"10px"}
               variant={"none"}
+              boxShadow={"md"}
             >
               <BsFunnel color="#000000" fontSize={"18px"} />
             </Button>
@@ -76,11 +78,11 @@ const LoanProduct = () => {
             >
               Add New
             </Button>
-            <NewProductModal isOpen={isOpen} onClose={onClose}/>
+            <NewProductModal isOpen={isOpen} onClose={onClose} />
           </Flex>
         </Flex>
         <Flex>
-          <Table>
+          <Table borderRadius={"14px"} boxShadow={"md"}>
             <Thead>
               <Tr>
                 <Th

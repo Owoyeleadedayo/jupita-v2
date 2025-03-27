@@ -23,6 +23,7 @@ const Scorecard = () => {
               height={"40px"}
               variant={"none"}
               borderRadius={"10px"}
+              boxShadow={"md"}
             >
               <InputLeftElement pointerEvents="none">
                 <CiSearch color="#0A1629" fontSize={"18px"} />
@@ -44,6 +45,7 @@ const Scorecard = () => {
               color={"#737791"}
               borderRadius={"10px"}
               variant={"none"}
+              boxShadow={"md"}
             >
               <BsFunnel color="#000000" fontSize={"18px"} />
             </Button>
@@ -63,7 +65,7 @@ const Scorecard = () => {
           </Flex>
         </Flex>
         <Flex>
-          <Table>
+          <Table borderRadius={'14px'} boxShadow={"md"}>
             <Thead>
               <Tr>
                 <Th
@@ -149,11 +151,7 @@ const Scorecard = () => {
                   fontSize={"14px"}
                   fontWeight={500}
                 >
-                  <Button
-                    height={"35px"}
-                    p={0}
-                    borderRadius={"12px"}
-                  >
+                  <Button height={"35px"} p={0} borderRadius={"12px"}>
                     <FiEdit fontSize={"18px"} />
                   </Button>
                 </Td>
@@ -162,11 +160,7 @@ const Scorecard = () => {
                   fontSize={"14px"}
                   fontWeight={500}
                 >
-                  <Button
-                    height={'35px'}
-                    p={0}
-                    borderRadius={"12px"}
-                  >
+                  <Button height={"35px"} p={0} borderRadius={"12px"}>
                     <RiDeleteBin6Line fontSize={"18px"} />
                   </Button>
                 </Td>

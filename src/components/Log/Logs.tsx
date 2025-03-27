@@ -27,6 +27,7 @@ const Logs = () => {
               height={"40px"}
               variant={"none"}
               borderRadius={"10px"}
+              boxShadow={"md"}
             >
               <InputLeftElement pointerEvents="none">
                 <CiSearch color="#0A1629" fontSize={"18px"} />
@@ -48,6 +49,7 @@ const Logs = () => {
               color={"#737791"}
               borderRadius={"10px"}
               variant={"none"}
+              boxShadow={"md"}
             >
               <BsFunnel color="#000000" fontSize={"18px"} />
             </Button>
@@ -70,7 +72,7 @@ const Logs = () => {
           </Flex>
         </Flex>
         <Flex>
-          <Table>
+          <Table borderRadius={"14px"} boxShadow={"md"}>
             <Thead>
               <Tr>
                 <Th
@@ -100,7 +102,7 @@ const Logs = () => {
               </Tr>
             </Thead>
             <Tbody>
-              <Tr bg={'#FFFFFF'}>
+              <Tr bg={"#FFFFFF"}>
                 <Td
                   fontFamily={"Nunito Sans"}
                   fontSize={"12px"}

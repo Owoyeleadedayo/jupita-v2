@@ -12,6 +12,7 @@ const Profile = () => {
         direction={"column"}
         gap={"20px"}
         borderRadius={"10px"}
+        boxShadow={"md"}
       >
         <Flex>
           <Text
@@ -131,7 +132,7 @@ const Profile = () => {
             Save changes
           </Button>
         </Flex>
-        <Flex width={"200px"} alignItems={"center"} mt={'20px'} gap={"20px"}>
+        <Flex width={"200px"} alignItems={"center"} mt={"20px"} gap={"20px"}>
           <Flex width={"100%"} alignItems={"center"}>
             <Text
               fontFamily={"Nunito Sans"}

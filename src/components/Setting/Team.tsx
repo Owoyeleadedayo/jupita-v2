@@ -48,6 +48,7 @@ const Team = () => {
         direction={"column"}
         gap={"20px"}
         borderRadius={"10px"}
+        boxShadow={"md"}
       >
         <Flex
           width={"100%"}
