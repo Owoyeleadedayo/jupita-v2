@@ -4,7 +4,6 @@ import SignIn from './components/SignIn/SignIn'
 import SignUp from './components/SignIn/SignUp'
 import VerifyEmail from './components/SignIn/VerifyEmail';
 import SuccessPage from './components/SignIn/SuccessPage';
-import LoanInformation from './components/IndividualLoanFlow/LoanInformation';
 import Sidebar from './components/Sidebar';
 import DashboardPage from './Pages/Dashboard/DashboardPage';
 import { Box } from '@chakra-ui/react';
@@ -18,12 +17,8 @@ import LogsPage from './Pages/Log/LogsPage';
 import SettingsPage from './Pages/Settings/SettingsPage';
 import AnalyzePage from './Pages/Analyze/AnalyzePage';
 import AnalyzeDetailsPage from "./Pages/Analyze/AnalyzeDetailsPage";
-import PersonalInformation from './components/IndividualLoanFlow/PersonalInformation';
 import DecidePage from './Pages/Decide/DecidePage';
-import BvnValidation from './components/IndividualLoanFlow/BvnValidation';
-import EmploymentInfo from './components/IndividualLoanFlow/EmploymentInfo';
-import EmploymentDocs from './components/IndividualLoanFlow/EmploymentDocs';
-import BankStatement from './components/IndividualLoanFlow/BankStatement';
+import IndividualLoan from './components/IndividualLoanFlow/IndividualLoan';
 
 function App() {
 
@@ -35,12 +30,7 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/verify" element={<VerifyEmail />} />
           <Route path="/success" element={<SuccessPage />} />
-          <Route path="/loan-info" element={<LoanInformation />} />
-          <Route path="/personal-info" element={<PersonalInformation />} />
-          <Route path="/validation" element={<BvnValidation />} />
-          <Route path="/employment-info" element={<EmploymentInfo />} />
-          <Route path="/employment-docs" element={<EmploymentDocs />} />
-          <Route path="/statement" element={<BankStatement />} />
+          <Route path="/individualLoan" element={<IndividualLoan />} />
           <Route element={<LayoutWithSidebar />}>
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/api-status" element={<ApiStatusPage />} />
